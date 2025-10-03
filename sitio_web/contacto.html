@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alleh y Yorghaki</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <h1>Alleh y Yorghaki</h1>
-    </header>
-    <aside>
         <nav>
-            <h2>Menu</h2>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="noticias.html">Noticias</a></li>
@@ -24,9 +21,40 @@
                 <li><a href="discografia.html">Discografía</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li><a href="acerca.html">Acerca de</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="contacto.html" class="pag-selecion">Contacto</a></li>
             </ul>
         </nav>
-    </aside>
+    </header>
+    
+    <main>
+        <h2>Contacto</h2>
+        <form action="" method="post" id="formulario-contacto">
+            <fieldset>
+                <legend>Envíanos un mensaje</legend>
+                <div class="caja-form">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="caja-form">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="caja-form"> 
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+                    <input type="submit" value="Enviar">
+            </fieldset>
+        </form>
+    </main>
+    
+    <footer>
+        <section class="redes-sociales">
+            <a href="https://www.instagram.com/laciudadtour/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://open.spotify.com/artist/4eq1q0o9XPyNq9RG3fNDD1"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://www.youtube.com/@Yorghaki"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@allehyorghaki"><i class="fa-brands fa-tiktok"></i></a>
+        </section>
+    </footer>
 </body>
 </html>
