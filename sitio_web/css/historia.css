@@ -1,0 +1,35 @@
+.historia {
+    width: 90%;
+    margin: 0 auto;
+}
+.historia h2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    padding: var(--space-xs);
+    color: var(--color-secondary);
+    font-family: var(--font-family-titulos), sans-serif;
+    text-transform: uppercase;  
+}
+
+/* Galería de imagenes */
+
+.img-historia {
+    display: flex;
+    margin: 1rem auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.img-historia img {
+    width: 20%;
+    object-fit: cover;
+    margin: var(--space-sm);
+    border-radius: var(--radius-md);
+    transition: transform (--transition-base);
+}
+
+.img-historia img:hover {
+    transform: scale(1.05);
+}
