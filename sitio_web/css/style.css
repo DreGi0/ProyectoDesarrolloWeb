@@ -71,6 +71,10 @@ header h1{
     font-size: 2.5em;
 }
 
+header h1:hover{
+    text-shadow: 3px 3px 8px var(--color-secondary);
+}
+
 header ul{
     list-style-type: none;
     display: flex;
@@ -80,6 +84,20 @@ header ul{
 header ul li a{
     text-decoration: none;
     font-family: var(--parrafos);
+    color: var(--color-text);
+    
+}
+
+header ul li a:hover{
+    font-weight: 600;
+    font-size: 1.06em;
+}
+
+header nav ul li a.pag-selecion{
+    color: var(--color-surface);
+    background-color: var(--color-muted);
+    border-radius: 15px;
+    padding: 0.5em;
 }
 
 footer{
@@ -91,8 +109,25 @@ footer{
     bottom: 0;
     justify-content: center;
     align-items: center;
-    font-size: 0.8em;
+    font-size: 0.6em;
     background-color: var(--color-surface);
+}
+
+.redes-sociales{
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.redes-sociales a{
+    color: var(--color-text);
+    font-size: 3em;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.redes-sociales a:hover{
+    color:var(--color-muted);
 }
 
 /* GALERIA.HTML */
