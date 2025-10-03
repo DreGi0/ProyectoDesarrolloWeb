@@ -45,7 +45,7 @@
 
 /* Alinear los campos del formulario */
 #formulario-contacto {
-    margin: 0.5em 0;
+    margin: var(--space-lg)
 }
 
 .caja-form {
@@ -55,33 +55,34 @@
 
 .caja-form label {
     width: 30%;
-    margin: 0.5em;
+    margin: var(--space-xs);
 }
 
 .caja-form textarea,
 .caja-form input {
     flex: 1; /* Ocupa el espacio restante */
-    padding: 0.5em;
-    margin: 0.5em;
+    padding: var(--space-sm);
+    margin: var(--space-sm);
     box-sizing: border-box;
 }
 
 #formulario-contacto input[type="submit"] {
     display: block;
-    margin: 1em auto;
-    padding: 0.5em 2em;
+    margin: var(--space-md) auto;
+    padding: var(--space-sm) var(--space-lg);
     background-color: var(--color-primary); /* uso del color primario definido */
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 1em;
 }
 
 #formulario-contacto fieldset {
     width: 35%;
-    margin: 0 auto 5em;
-    padding: 1em;
-    border-radius: 10px;
+    margin: var(--space-md) auto;
+    padding: var(--space-sm);
+    border: none;
+    border-radius: var(--radius-sm);
     box-shadow: 9px 8px 23px -7px var(--color-primary);
 }
 
@@ -89,4 +90,17 @@
     font-weight: bold;
     text-align: center;
     font-size: 1.5em;
+    padding: var(--space-xs);
+}
+
+#formulario-contacto input,
+#formulario-contacto textarea {
+    border-radius: var(--radius-sm);
+    border: var(--border-width) solid var(--color-muted);
+}
+
+#formulario-contacto input[type="text"]:focus,
+#formulario-contacto input[type="email"]:focus,
+#formulario-contacto textarea:focus {
+    outline: solid var(--color-secondary);
 }
