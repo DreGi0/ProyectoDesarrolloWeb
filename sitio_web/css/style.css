@@ -62,7 +62,8 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 1.5%;
-
+    background-color: var(--color-surface);
+    z-index: 1000;
 }
 
 header h1{
@@ -73,7 +74,7 @@ header h1{
 header ul{
     list-style-type: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 header ul li a{
@@ -91,6 +92,7 @@ footer{
     justify-content: center;
     align-items: center;
     font-size: 0.8em;
+    background-color: var(--color-surface);
 }
 
 /* GALERIA.HTML */
