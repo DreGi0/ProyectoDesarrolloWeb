@@ -1,11 +1,41 @@
 :root {
-    --primary-color: #fff;
-    --secondary-color: #000
-    --font-size: 16px;
+    /* Paleta de colores */
+    --color-primary:   #1f2937; /* color principal / fondo oscuro */
+    --color-secondary: #3b82f6; /* color secundario / acento */
+    --color-surface:   #ffffff; /* superficie / fondo claro */
+    --color-text:      #0f172a; /* color de texto principal */
+    --color-muted:     #94a3b8; /* color para bordes, textos secundarios */
+
+    /* Tipografía */
+    --font-size-base: 16px; /* tamaño base de letra */
+    --font-family-base: "Helvetica Neue", Arial, sans-serif;
+
+    /* Espaciado */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px; /* padding/margin por defecto */
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    /* Bordes */
+    --radius-sm: 4px;
+    --radius-md: 8px;  /* radio por defecto */
+    --radius-lg: 16px;
+
+    /* Lo que sea que vaya aca */
+    --border-width: 1px;
+    --transition-fast: 150ms;
+    --transition-base: 300ms;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    /* valores por defecto de las variables */
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-surface);
 }
