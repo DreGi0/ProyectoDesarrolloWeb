@@ -39,3 +39,54 @@
     color: var(--color-text);
     background-color: var(--color-surface);
 }
+
+
+/* PÁGINA CONTACTO */
+
+/* Alinear los campos del formulario */
+#formulario-contacto {
+    margin: 0.5em 0;
+}
+
+.caja-form {
+    display: flex;
+    align-items: flex-start;
+}
+
+.caja-form label {
+    width: 30%;
+    margin: 0.5em;
+}
+
+.caja-form textarea,
+.caja-form input {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: 0.5em;
+    margin: 0.5em;
+    box-sizing: border-box;
+}
+
+#formulario-contacto input[type="submit"] {
+    display: block;
+    margin: 1em auto;
+    padding: 0.5em 2em;
+    background-color: var(--color-primary); /* uso del color primario definido */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#formulario-contacto fieldset {
+    width: 35%;
+    margin: 0 auto 5em;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 9px 8px 23px -7px var(--color-primary);
+}
+
+#formulario-contacto legend {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+}
