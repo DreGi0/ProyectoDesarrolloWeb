@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     /* Paleta de colores */
@@ -13,6 +13,10 @@
     --font-family-base: "Work Sans", sans-serif; /* párrafos */
     --font-family-titulos: "Bebas Neue", sans-serif; /* títulos */
     --font-family-subtitulos: "League Spartan", sans-serif; /* subtítulos */
+
+     --titulo: "Bebas Neue", sans-serif;
+    --subtitulo: "League Spartan", sans-serif;
+    --parrafos: "Work Sans", sans-serif;
 
     /* Espaciado */
     --space-xs: 4px;
@@ -42,7 +46,51 @@ body {
     font-family: var(--font-family-base), sans-serif;
     font-size: var(--font-size-base);
     color: var(--color-text);
-    background-color: var(--color-primary);
+    background-color: var(--color-surface);
+}
+
+body {
+  padding-top: 100px; 
+  padding-bottom: 40px; 
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5%;
+
+}
+
+header h1{
+    font-family: var(--titulo);
+    font-size: 2.5em;
+}
+
+header ul{
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+header ul li a{
+    text-decoration: none;
+    font-family: var(--parrafos);
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    height: auto;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
 }
 
 /* GALERIA.HTML */
