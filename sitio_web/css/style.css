@@ -2,11 +2,19 @@
 
 :root {
     /* Paleta de colores */
+<<<<<<< Updated upstream
     --color-primary:   #1f2937; /* color principal / fondo oscuro */
     --color-secondary: #3b82f6; /* color secundario / acento */
     --color-surface:   #ffffff; /* superficie / fondo claro */
     --color-text:      #0f172a; /* color de texto principal */
     --color-muted:     #94a3b8; /* color para bordes, textos secundarios */
+=======
+    --color-primary: #1f2937; /* color principal / fondo oscuro */
+    --color-secondary: #3b82f6; /* color secundario / acento */
+    --color-surface: #ffffff; /* superficie / fondo claro */
+    --color-text: #0f172a; /* color de texto principal */
+    --color-muted: #94a3b8; /* color para bordes, textos secundarios */
+>>>>>>> Stashed changes
 
     /* Tipografía */
     --font-size-base: 16px; /* tamaño base de letra */
@@ -14,6 +22,7 @@
     --font-family-titulos: "Bebas Neue", sans-serif; /* títulos */
     --font-family-subtitulos: "League Spartan", sans-serif; /* subtítulos */
 
+<<<<<<< Updated upstream
      --titulo: "Bebas Neue", sans-serif;
     --subtitulo: "League Spartan", sans-serif;
     --parrafos: "Work Sans", sans-serif;
@@ -30,6 +39,20 @@
     --radius-md: 8px;  /* radio por defecto */
     --radius-lg: 16px;
 
+=======
+    /* Espaciado */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px; /* padding/margin por defecto */
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    /* Bordes */
+    --radius-sm: 4px;
+    --radius-md: 8px; /* radio por defecto */
+    --radius-lg: 16px;
+
+>>>>>>> Stashed changes
     /* Otros */
     --border-width: 1px;
     --transition-fast: 150ms;
@@ -84,20 +107,38 @@ header ul{
 header ul li a{
     text-decoration: none;
     font-family: var(--parrafos);
+<<<<<<< Updated upstream
     color: var(--color-text);
     
+=======
+    color: var(--color-primary);
+    display: inline-flex; /* mejor control de centrado */
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.6rem; /* padding consistente vertical/horizontal */
+    line-height: 1; /* evita variaciones por tamaño de fuente */
+    transition: transform var(--transition-fast) ease, color var(--transition-fast) ease, opacity var(--transition-fast) ease, background-color var(--transition-fast) ease;
+    transform-origin: center;
+>>>>>>> Stashed changes
 }
 
 header ul li a:hover{
-    font-weight: 600;
-    font-size: 1.06em;
+    transform: translateY(-3px) scale(1.03);
+    color: var(--color-secondary);
+    opacity: 0.95;
 }
 
 header nav ul li a.pag-selecion{
     color: var(--color-surface);
     background-color: var(--color-muted);
+<<<<<<< Updated upstream
     border-radius: 15px;
     padding: 0.5em;
+=======
+    border-radius: var(--radius-lg);
+    padding: 0.35rem 0.6rem;
+    transform: none !important; /* que no se mueva accidentalmente */
+>>>>>>> Stashed changes
 }
 
 footer{
