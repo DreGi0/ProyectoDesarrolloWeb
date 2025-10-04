@@ -2,10 +2,12 @@
 
 /* PÁGINA CONTACTO */
 
-/* Alinear los campos del formulario */
+/* Agregar un padding para que no se vea detrás o debajo del menú */
 body {
     padding-top: 10%;
 }
+
+/* Alinear los campos del formulario */
 
 #formulario-contacto {
     margin: var(--space-lg);
