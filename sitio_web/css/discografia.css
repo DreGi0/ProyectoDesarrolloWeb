@@ -1,48 +1,47 @@
 /* DISCOGRAFÍA */
 
-/* Título principal */
-.titulo-principal {
-  font-family: var(--font-family-titulos);
-  font-size: 3.5em;
-  color: var(--color-primary);
-  text-align: center;
-  margin: var(--space-xl) 0;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Contenedor clase álbum */
 .album {
-  background-color: rgb(250, 250, 250);
-  border-radius: 10px;
-  margin: var(--space-xl);
-  padding: var(--space-xl);
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2.5rem;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    margin: var(--space-xl);
+    padding: var(--space-xl);
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2.5rem;
 }
 
 /* Portada */
 .portada img {
-  width: 550px;
-  height: 550px;
-  border-radius: 10px;
-  padding: var(--space-xl);
-  margin: var(--space-xl) var(--space-xs);
+    display: block;
+    width: 550px;
+    height: 550px;
+    border-radius: 15px;
+    padding: var(--space-xl);
+    margin: var(--space-xl) var(--space-xs);
+    margin-top: 80px;
 }
 
 /*Acercamiento a la portada*/
 .portada:hover {
-  transform: scale(1.02);  
-  transition: transform 0.3s;
+    transform: scale(1.02);  
+    transition: transform 0.3s;
 }
 
 /* Títulos */
 .titulo {
-  font-family: var(--font-family-titulos);
-  font-size: 2.5em;
-  color: var(--color-primary);
-  text-align: center;
-  padding: var(--space-xl) 0 var(--space-md);
+    font-family: var(--font-family-titulos);
+    font-size: 2.5em;
+    color: var(--color-primary);
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-md);
 }
 
 .titulo:hover{
@@ -52,111 +51,101 @@
 
 /*Subtítulo*/
 .subtitulo {
-  font-family: var(--font-family-subtitulos);
-  font-size: 1.5em;
-  color: var(--color-muted);
-  text-align: center;
-  margin-bottom: var(--space-md);
+    font-family: var(--font-family-subtitulos);
+    font-size: 1.5em;
+    color: var(--color-muted);
+    text-align: center;
+    margin-bottom: var(--space-md);
 }
 
 /*Texto de "Tracklist"*/
 .album h4 {
-  font-family: var(--font-family-subtitulos);
-  font-size: 1.2em;
-  color: var(--color-muted);
-  text-align: center;
-  margin-top: var(--space-md);
+    font-family: var(--font-family-subtitulos);
+    font-size: 1.2em;
+    color: var(--color-muted);
+    text-align: center;
+    margin-top: var(--space-md);
 }
 
 /* Tracklist */
 .tracklist {
-  display: flex;
-  flex-direction: column;
-  gap: .25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
 }
 
 .cancion {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: .5rem 0;
-  border-bottom: 1px solid rgb(214, 214, 214);
-  font-variant-numeric: tabular-nums;
-  font-size: var(--font-size-base);
-  font-family: var(--font-family-base);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem 1rem;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-base);
 }
 
-.cancion a{
-    display: flex;
-    color: inherit;
-    text-decoration: none;
-    color: var(--color-primary);
-    justify-content: space-between;
-    width: 100%;
+/* Número y nombre de la canción */
+.cancion span:first-child {
+    min-width: 180px;
+    font-weight: 500;
 }
 
+/* Control de audio */
+.audio {
+    width: 250px;
+    height: 40px;
+    justify-self: center;
+}
+
+/* Duración de la canción */
+.cancion span:last-child {
+    min-width: 50px;
+    text-align: right;
+    color: var(--color-muted);
+    font-size: 0.9em;
+}
+
+/* Efecto */
 .cancion:hover {
-  background-color: rgb(242, 242, 242);
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: rgb(242, 242, 242);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .creditos {
-  display: flex;
-  text-align: center;
-  font-family: var(--font-family-base);
-  font-size: 1rem;
-  color: var(--color-primary);
-  padding: var(--space-xl);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    color: var(--color-primary);
+    padding: var(--space-xl);
+    gap: 16px;
 }
 
 .creditos span {
-  display: flex;         
-  color: var(--color-primary);
-  margin: 0.2rem ; 
-  padding: auto;        
+    display: flex;         
+    color: var(--color-primary);
+    margin: 0.2em ; 
+    padding: auto;        
 }
 
-/* Single*/
-.single {
-  background-color: rgb(250, 250, 250);
-  border-radius: 10px;
-  margin: var(--space-xl);
-  padding: var(--space-xl);
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-}
-
-/* Portada del single */
-.portada-single img {
-  width: 550px;
-  height: 500px;
-  border-radius: 10px;
-  padding: var(--space-xs);
-  margin: var(--space-xs);
-}
-
-/*Acercamiento a la portada*/
-.portada-single:hover {
-  transform: scale(1.02);  
-  transition: transform 0.3s;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .album,
-  .single {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .portada img,
-  .portada-single img {
-    width: 100%;
-    height: auto;
-    max-width: 450px;
-  }
+    .cancion {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .audio {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .cancion span:first-child {
+        min-width: auto;
+    }
 }
