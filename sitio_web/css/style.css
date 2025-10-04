@@ -102,6 +102,7 @@ footer{
     align-items: center;
     font-size: 0.6em;
     background-color: var(--color-surface);
+    z-index: 1000;
 }
 
 .redes-sociales{
