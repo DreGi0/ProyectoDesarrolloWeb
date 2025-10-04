@@ -1,0 +1,123 @@
+/* PÁGINA CONTACTO */
+
+/* Agregar un padding para que no se vea detrás o debajo del menú */
+body {
+  padding-top: 10%;
+}
+
+/* Alinear los campos del formulario */
+
+#formulario-contacto {
+  margin: var(--space-lg);
+}
+
+.caja-form {
+  display: flex;
+  align-items: center;
+}
+
+fieldset div:first-of-type {
+  margin-top: var(--space-lg);
+}
+
+.caja-form label {
+  width: 30%;
+  margin: var(--space-xs);
+}
+
+#formulario-contacto input[type="submit"] {
+  display: block;
+  margin: var(--space-md) auto;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-primary); /* uso del color primario definido */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+}
+
+#formulario-contacto fieldset {
+  width: 35%;
+  margin: var(--space-md) auto;
+  padding: var(--space-sm);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 9px 8px 23px -7px var(--color-primary); /* Caja de sombra*/
+}
+
+.titulo-contacto {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  padding: var(--space-xs);
+  color: var(--color-secondary);
+  font-family: var(--font-family-titulos), sans-serif;
+  text-transform: uppercase;
+}
+
+/* dar estilo a las cajas de input */
+#formulario-contacto input,
+#formulario-contacto textarea {
+  flex: 1; /* Ocupa el espacio restante */
+  padding: var(--space-sm);
+  margin: var(--space-sm);
+  box-sizing: border-box;
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--color-muted);
+  font-family: inherit;
+  resize: none;
+}
+
+/* Ocultar placeholder*/
+
+input::placeholder,
+textarea::placeholder {
+  color: transparent;
+}
+
+/* cambio de borde cuando el input esté activo */
+#formulario-contacto input[type="text"]:focus,
+#formulario-contacto input[type="email"]:focus,
+#formulario-contacto textarea:focus {
+  outline: solid var(--color-secondary);
+}
+
+#formulario-contacto .btn-enviar:hover {
+  opacity: 0.8;
+  transition: all var(--transition-base);
+}
+
+/* PANTALLAS PEQUEÑAS */
+@media (max-width: 390px) {
+  body {
+    padding: 30% 0;
+  }
+  #formulario-contacto fieldset {
+    width: 100%;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-muted);
+  }
+
+  .caja-form label {
+    display: none;
+  }
+}
+
+/* PANTALLAS MEDIANAS */
+@media (min-width: 391px) and (max-width: 1024px) {
+  body {
+    padding: 15% 0;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-muted);
+  }
+  .caja-form label {
+    display: none;
+  }
+}
