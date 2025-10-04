@@ -1,362 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-    /* Paleta de colores */
-    --color-primary:   #1f2937; /* color principal / fondo oscuro */
-    --color-secondary: #3b82f6; /* color secundario / acento */
-    --color-surface:   #ffffff; /* superficie / fondo claro */
-    --color-text:      #0f172a; /* color de texto principal */
-    --color-muted:     #94a3b8; /* color para bordes, textos secundarios */
+  /* Paleta de colores */
+  --color-primary: #1f2937; /* color principal / fondo oscuro */
+  --color-secondary: #3b82f6; /* color secundario / acento */
+  --color-surface: #ffffff; /* superficie / fondo claro */
+  --color-text: #0f172a; /* color de texto principal */
+  --color-muted: #94a3b8; /* color para bordes, textos secundarios */
 
-    /* Tipografía */
-    --font-size-base: 16px; /* tamaño base de letra */
-    --font-family-base: "Work Sans", sans-serif; /* párrafos */
-    --font-family-titulos: "Bebas Neue", sans-serif; /* títulos */
-    --font-family-subtitulos: "League Spartan", sans-serif; /* subtítulos */
+  /* Tipografía */
+  --font-size-base: 16px; /* tamaño base de letra */
+  --font-family-base: "Work Sans", sans-serif; /* párrafos */
+  --font-family-titulos: "Bebas Neue", sans-serif; /* títulos */
+  --font-family-subtitulos: "League Spartan", sans-serif; /* subtítulos */
 
-    --titulo: "Bebas Neue", sans-serif;
-    --subtitulo: "League Spartan", sans-serif;
-    --parrafos: "Work Sans", sans-serif;
+  /* Espaciado */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px; /* padding/margin por defecto */
+  --space-lg: 24px;
+  --space-xl: 32px;
 
-    /* Espaciado */
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-md: 16px; /* padding/margin por defecto */
-    --space-lg: 24px;
-    --space-xl: 32px;
+  /* Bordes */
+  --radius-sm: 4px;
+  --radius-md: 8px; /* radio por defecto */
+  --radius-lg: 16px;
 
-    /* Bordes */
-    --radius-sm: 4px;
-    --radius-md: 8px;  /* radio por defecto */
-    --radius-lg: 16px;
-
-    /* Otros */
-    --border-width: 1px;
-    --transition-fast: 150ms;
-    --transition-base: 300ms;
+  /* Otros */
+  --border-width: 1px;
+  --transition-fast: 150ms;
+  --transition-base: 300ms;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font-family-base), sans-serif;
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-    background-color: var(--color-surface);
+  font-family: var(--font-family-base), sans-serif;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: var(--color-surface);
 }
 
-body {
-  padding-top: 100px; 
-  padding-bottom: 40px; 
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5%;
+  background-color: var(--color-surface);
+  z-index: 1000;
 }
 
-header{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5%;
-    background-color: var(--color-surface);
-    z-index: 1000;
+header h1 {
+  font-family: var(--font-family-titulos), sans-serif;
+  font-size: 2.5em;
 }
 
-header h1{
-    font-family: var(--titulo);
-    font-size: 2.5em;
+header h1:hover {
+  text-shadow: 3px 3px 8px var(--color-secondary);
 }
 
-header h1:hover{
-    text-shadow: 3px 3px 8px var(--color-secondary);
+header ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1.5rem;
 }
 
-header ul{
-    list-style-type: none;
-    display: flex;
-    gap: 1.5rem;
+header ul li a {
+  text-decoration: none;
+  font-family: var(--font-family-base), sans-serif;
+  color: var(--color-text);
 }
 
-header ul li a{
-    text-decoration: none;
-    font-family: var(--parrafos);
-    color: var(--color-text);
-    
+header ul li a:hover {
+  font-weight: 600;
+  font-size: 1.06em;
 }
 
-header ul li a:hover{
-    font-weight: 600;
-    font-size: 1.06em;
+header nav ul li a.pag-selecion {
+  color: var(--color-surface);
+  background-color: var(--color-muted);
+  border-radius: 15px;
+  padding: 0.5em;
 }
 
-header nav ul li a.pag-selecion{
-    color: var(--color-surface);
-    background-color: var(--color-muted);
-    border-radius: 15px;
-    padding: 0.5em;
+footer {
+  width: 100%;
+  display: flex;
+  height: auto;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6em;
+  background-color: var(--color-surface);
 }
 
-footer{
-    width: 100%;
-    display: flex;
-    height: auto;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.6em;
-    background-color: var(--color-surface);
+.redes-sociales {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
-.redes-sociales{
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
+.redes-sociales a {
+  color: var(--color-text);
+  font-size: 3em;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 
-.redes-sociales a{
-    color: var(--color-text);
-    font-size: 3em;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.redes-sociales a:hover{
-    color:var(--color-muted);
-}
-
-/* GALERIA.HTML */
-
-/* Contenedor principal */
-.contenedor-principal {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: var(--space-xl) var(--space-lg);
-}
-
-/* Títulos de sección */
-.seccion-titulo {
-    font-size: 2rem;
-    margin-bottom: var(--space-md);
-    text-align: center;
-    color: var(--color-secondary);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: var(--font-family-titulos), sans-serif;
-}
-
-/* Subtítulos de sección */
-.seccion-subtitulo {
-    font-size: 1.2rem;
-    margin-bottom: var(--space-xl);
-    text-align: center;
-    color: var(--color-muted);
-    font-family: var(--font-family-subtitulos), sans-serif;
-    font-weight: 500;
-}
-
-/* Sección de galería de fotos */
-.seccion-galeria {
-    margin-bottom: var(--space-xl);
-}
-
-/* Contenedor del collage */
-.collage {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* para las 4 columnas */
-    grid-auto-rows: 200px;  /* cada fila */
-    gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
-}
-
-/* Foto individual del collage */
-.foto {
-    overflow: hidden;
-    border-radius: var(--radius-md);
-    position: relative;
-    cursor: pointer;
-    transition: transform var(--transition-base);
-}
-
-.foto:hover {
-    transform: scale(1.05);  /* agranda un 5% al pasar mouse */
-    z-index: 10;
-}
-
-.foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: filter var(--transition-base);
-}
-
-.foto:hover img {
-    filter: brightness(1.2);  /* un 20% más de brillo */
-}
-
-/* Tamaños especiales para algunas fotos */
-
-/* Foto 1 ocupa 2 columnas y 2 filas */
-.foto:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-/* Foto 4 ocupa 2 columnas */
-.foto:nth-child(4) {
-    grid-column: span 2;
-}
-
-/* Foto 7 ocupa 2 filas */
-.foto:nth-child(7) {
-    grid-row: span 2;
-}
-
-/* Foto 9 ocupa 2 columnas y 2 filas */
-.foto:nth-child(9) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-/* RESPONSIVO */
-
-/* PANTALLAS GRANDES */
-@media (max-width: 1440px) {
-    /* AJUSTES PARA GALERIA.HTML */
-    .contenedor-principal {
-        max-width: 1200px;
-        padding: var(--space-lg) var(--space-md);
-    }
-}
-
-/* PANTALLAS MEDIANAS */
-@media (max-width: 1024px) {
-    /* AJUSTES PARA GALERIA.HTML */
-    .collage {
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 180px;
-    }
-
-    .grid-instagram {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    .seccion-titulo {
-        font-size: 1.8rem;
-    }
-
-    .seccion-subtitulo {
-        font-size: 1.1rem;
-    }
-}
-
-/* PANTALLAS PEQUEÑAS */
-@media (max-width: 390px) {
-    /* AJUSTES PARA GALERIA.HTML */
-    .contenedor-principal {
-        padding: var(--space-md) var(--space-sm);
-    }
-
-    .collage {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 200px;
-        gap: var(--space-sm);
-    }
-
-    .grid-instagram {
-        grid-template-columns: 1fr;
-        gap: var(--space-sm);
-    }
-
-    .seccion-titulo {
-        font-size: 1.4rem;
-        letter-spacing: 1px;
-    }
-
-    .seccion-subtitulo {
-        font-size: 1rem;
-    }
-
-    /* Resetear de los tamaños especiales */
-    .foto:nth-child(1),
-    .foto:nth-child(4),
-    .foto:nth-child(7),
-    .foto:nth-child(9) {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-}
-
-
-/* PÁGINA CONTACTO */
-
-/* Alinear los campos del formulario */
-#formulario-contacto {
-    margin: var(--space-lg)
-}
-
-.caja-form {
-    display: flex;
-    align-items: flex-start;
-}
-
-.caja-form label {
-    width: 30%;
-    margin: var(--space-xs);
-}
-
-.caja-form textarea,
-.caja-form input {
-    flex: 1; /* Ocupa el espacio restante */
-    padding: var(--space-sm);
-    margin: var(--space-sm);
-    box-sizing: border-box;
-}
-
-#formulario-contacto input[type="submit"] {
-    display: block;
-    margin: var(--space-md) auto;
-    padding: var(--space-sm) var(--space-lg);
-    background-color: var(--color-primary); /* uso del color primario definido */
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 1em;
-}
-
-#formulario-contacto fieldset {
-    width: 35%;
-    margin: var(--space-md) auto;
-    padding: var(--space-sm);
-    border: none;
-    border-radius: var(--radius-sm);
-    box-shadow: 9px 8px 23px -7px var(--color-primary);
-}
-
-#formulario-contacto legend {
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.5em;
-    padding: var(--space-xs);
-}
-
-#formulario-contacto input,
-#formulario-contacto textarea {
-    border-radius: var(--radius-sm);
-    border: var(--border-width) solid var(--color-muted);
-}
-
-#formulario-contacto input[type="text"]:focus,
-#formulario-contacto input[type="email"]:focus,
-#formulario-contacto textarea:focus {
-    outline: solid var(--color-secondary);
+.redes-sociales a:hover {
+  color: var(--color-muted);
 }

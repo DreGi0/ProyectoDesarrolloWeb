@@ -1,0 +1,74 @@
+/* Agregar un padding para que no se vea detrás del menú */
+body {
+  padding: 10% 0;
+}
+
+/* Contenedor principal de la historia */
+.historia {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.historia h2 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  padding: var(--space-xs);
+  color: var(--color-secondary);
+  font-family: var(--font-family-titulos), sans-serif;
+  text-transform: uppercase;
+}
+
+/* Imagenes */
+
+.img-historia {
+  display: flex;
+  margin: 1rem auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.img-historia img {
+  width: 20%;
+  object-fit: cover;
+  margin: var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-base);
+}
+
+.img-historia img:hover {
+  transform: scale(1.05);
+}
+
+.historia p {
+  padding: var(--space-sm);
+}
+
+#imgGrande {
+  display: block;
+  width: 30%;
+  margin: var(--space-lg) auto;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-base);
+}
+
+#imgGrande:hover {
+  transform: scale(1.05);
+}
+
+/* PANTALLAS PEQUEÑAS */
+@media (max-width: 390px) {
+  body {
+    padding: 30% 0;
+  }
+
+  .img-historia img,
+  #imgGrande {
+    width: 100%;
+    object-fit: cover;
+    margin: var(--space-sm);
+    transition: transform var(--transition-base);
+  }
+}
