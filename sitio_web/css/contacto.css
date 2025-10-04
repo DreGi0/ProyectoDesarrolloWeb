@@ -1,9 +1,6 @@
 /* PÁGINA CONTACTO */
 
-/* Agregar un padding para que no se vea detrás o debajo del menú */
-body {
-  padding-top: 10%;
-}
+/* El padding superior se gestiona globalmente en style.css */
 
 /* Alinear los campos del formulario */
 
@@ -90,8 +87,9 @@ textarea::placeholder {
 
 /* PANTALLAS PEQUEÑAS */
 @media (max-width: 390px) {
-  body {
-    padding: 30% 0;
+  /* Ajuste específico para el formulario en pantallas pequeñas */
+  #formulario-contacto {
+    margin-top: 30%;
   }
   #formulario-contacto fieldset {
     width: 100%;
@@ -109,8 +107,9 @@ textarea::placeholder {
 
 /* PANTALLAS MEDIANAS */
 @media (min-width: 391px) and (max-width: 1024px) {
-  body {
-    padding: 15% 0;
+  /* Ajuste específico para el formulario en pantallas medianas */
+  #formulario-contacto {
+    margin-top: 15%;
   }
 
   input::placeholder,
