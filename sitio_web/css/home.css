@@ -1,9 +1,77 @@
+:root {
+    /* Paleta de colores */
+    --color-primary:   #1f2937; /* color principal / fondo oscuro */
+    --color-secondary: #3b82f6; /* color secundario / acento */
+    --color-surface:   #ffffff; /* superficie / fondo claro */
+    --color-text:      #0f172a; /* color de texto principal */
+    --color-muted:     #94a3b8; /* color para bordes, textos secundarios */
+}
+
 #contenido{
     max-width: 1440px;
     margin: 0 auto;
-    background-image: url(https://colombia.billboard.ar/wp-content/uploads/2025/03/67b49b0b35b091351e2b2df3_alleh-op-2-2.jpg);
-    background-size: cover;
-    height: 150vh;
-    background-position: center;
-    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin-top: 10rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+#img-inicio img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 100%;
+    z-index: 1;
+}
+
+#contenido::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2; 
+}
+
+#contenido h2 {
+    position: relative;
+    z-index: 3;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 4rem;
+}
+
+#contenido h2:hover{
+    text-shadow: 3px 3px 8px var(--color-surface);
+}
+
+/* Responsive para pantallas pequeñas */
+
+@media screen and (max-width: 480px) {
+    #contenido {
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+    #contenido h2 {
+        font-size: 1.5rem;
+        padding: 0 1rem;
+    }
+    #img-inicio img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
