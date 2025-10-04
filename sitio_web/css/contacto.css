@@ -27,14 +27,6 @@ fieldset div:first-of-type {
     margin: var(--space-xs);
 }
 
-.caja-form textarea,
-.caja-form input {
-    flex: 1; /* Ocupa el espacio restante */
-    padding: var(--space-sm);
-    margin: var(--space-sm);
-    box-sizing: border-box;
-}
-
 #formulario-contacto input[type="submit"] {
     display: block;
     margin: var(--space-md) auto;
@@ -52,7 +44,7 @@ fieldset div:first-of-type {
     padding: var(--space-sm);
     border: none;
     border-radius: var(--radius-lg);
-    box-shadow: 9px 8px 23px -7px var(--color-primary);
+    box-shadow: 9px 8px 23px -7px var(--color-primary); /* Caja de sombra*/
 }
 
 .titulo-contacto {
@@ -69,6 +61,10 @@ fieldset div:first-of-type {
 /* dar estilo a las cajas de input */
 #formulario-contacto input,
 #formulario-contacto textarea {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: var(--space-sm);
+    margin: var(--space-sm);
+    box-sizing: border-box;
     border-radius: var(--radius-sm);
     border: var(--border-width) solid var(--color-muted);
     font-family: inherit;
@@ -83,6 +79,7 @@ fieldset div:first-of-type {
 }
 
 #formulario-contacto .btn-enviar:hover {
-    background-color: var(--color-secondary);
+    opacity: 0.8;
+    transition: all var(--transition-base); 
 }
 
