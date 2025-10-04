@@ -1,11 +1,4 @@
-:root {
-    /* Paleta de colores */
-    --color-primary:   #1f2937; /* color principal / fondo oscuro */
-    --color-secondary: #3b82f6; /* color secundario / acento */
-    --color-surface:   #ffffff; /* superficie / fondo claro */
-    --color-text:      #0f172a; /* color de texto principal */
-    --color-muted:     #94a3b8; /* color para bordes, textos secundarios */
-}
+/* Variables globales definidas en css/style.css */
 
 #contenido{
     max-width: 1440px;

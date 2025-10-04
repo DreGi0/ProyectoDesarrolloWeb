@@ -1,7 +1,5 @@
-/* Agregar un padding para que no se vea detrás del menú */
-body {
-  padding: 10% 0;
-}
+/* El espacio superior se gestiona globalmente en style.css */
+.historia { margin-top: calc(var(--header-height-desktop) + 2rem); }
 
 /* Contenedor principal de la historia */
 .historia {
@@ -62,9 +60,7 @@ body {
 
 /* PANTALLAS PEQUEÑAS */
 @media (max-width: 390px) {
-  body {
-    padding: 30% 0;
-  }
+  .historia { margin-top: calc(var(--header-height-mobile) + 2rem); }
 
   .historia p {
     width: 100%;
@@ -81,7 +77,5 @@ body {
 
 /* PANTALLAS MEDIANAS */
 @media (min-width: 391px) and (max-width: 1024px) {
-  body {
-    padding: 20% 0;
-  }
+  .historia { margin-top: calc(var(--header-height-mobile) + 2.5rem); }
 }
