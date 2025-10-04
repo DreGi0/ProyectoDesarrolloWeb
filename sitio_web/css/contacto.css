@@ -20,6 +20,7 @@ fieldset div:first-of-type {
 .caja-form label {
   width: 30%;
   margin: var(--space-xs);
+  font-weight: bold;
 }
 
 #formulario-contacto input[type="submit"] {
@@ -81,10 +82,20 @@ textarea::placeholder {
 }
 
 #formulario-contacto .btn-enviar:hover {
-  opacity: 0.8;
+  transition: all var(--transition-base);
+  transform: scale(1.05);
+}
+
+#formulario-contacto input,
+#formulario-contacto textarea {
   transition: all var(--transition-base);
 }
 
+#formulario-contacto input[type="text"]:hover,
+#formulario-contacto textarea:hover {
+  transform: (1.05);
+  box-shadow: 0 0 8px var(--color-secondary);
+}
 /* PANTALLAS PEQUEÑAS */
 @media (max-width: 390px) {
   /* Ajuste específico para el formulario en pantallas pequeñas */
