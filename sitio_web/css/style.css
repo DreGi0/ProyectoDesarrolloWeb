@@ -90,17 +90,18 @@ header nav ul li a.pag-selecion {
   padding: 0.5em;
 }
 
-footer {
-  width: 100%;
-  display: flex;
-  height: auto;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.6em;
-  background-color: var(--color-surface);
+footer{
+    width: 100%;
+    display: flex;
+    height: auto;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6em;
+    background-color: var(--color-surface);
+    z-index: 1000;
 }
 
 .redes-sociales {
