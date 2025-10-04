@@ -1,3 +1,9 @@
+/* Agregar un padding para que no se vea detrás del menú */
+body {
+    padding: 10% 0;
+}
+
+/* Contenedor principal de la historia */
 .historia {
     width: 90%;
     margin: 0 auto;
@@ -27,9 +33,36 @@
     object-fit: cover;
     margin: var(--space-sm);
     border-radius: var(--radius-md);
-    transition: transform (--transition-base);
+    transition: transform var(--transition-base);
 }
 
 .img-historia img:hover {
+    transform: scale(1.05);
+}
+
+.historia p {
+    padding: var(--space-sm);
+}
+
+.columnas {
+    display: flex;
+    justify-content: center;
+}
+
+.columnas p {
+    width: 40%;
+    margin-right: var(--space-xl);
+}
+
+#imgGrande {
+    display: block;
+    width: 30%;
+    margin: var(--space-lg) auto;
+    object-fit: cover; 
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-base); 
+}
+
+#imgGrande:hover {
     transform: scale(1.05);
 }
