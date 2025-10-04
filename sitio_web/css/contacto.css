@@ -92,6 +92,7 @@ textarea::placeholder {
 }
 
 #formulario-contacto input[type="text"]:hover,
+#formulario-contacto input[type="email"]:hover,
 #formulario-contacto textarea:hover {
   transform: (1.05);
   box-shadow: 0 0 8px var(--color-secondary);
