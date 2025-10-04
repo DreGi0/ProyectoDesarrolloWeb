@@ -14,10 +14,6 @@
     --font-family-titulos: "Bebas Neue", sans-serif; /* títulos */
     --font-family-subtitulos: "League Spartan", sans-serif; /* subtítulos */
 
-     --titulo: "Bebas Neue", sans-serif;
-    --subtitulo: "League Spartan", sans-serif;
-    --parrafos: "Work Sans", sans-serif;
-
     /* Espaciado */
     --space-xs: 4px;
     --space-sm: 8px;
@@ -49,11 +45,6 @@ body {
     background-color: var(--color-surface);
 }
 
-body {
-  padding-top: 100px; 
-  padding-bottom: 40px; 
-}
-
 header{
     position: fixed;
     top: 0;
@@ -62,23 +53,42 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 1.5%;
-
+    background-color: var(--color-surface);
+    z-index: 1000;
 }
 
 header h1{
-    font-family: var(--titulo);
+    font-family: var(--font-family-titulos), sans-serif;
     font-size: 2.5em;
+}
+
+header h1:hover{
+    text-shadow: 3px 3px 8px var(--color-secondary);
 }
 
 header ul{
     list-style-type: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 header ul li a{
     text-decoration: none;
-    font-family: var(--parrafos);
+    font-family: var(--font-family-base), sans-serif;
+    color: var(--color-text);
+    
+}
+
+header ul li a:hover{
+    font-weight: 600;
+    font-size: 1.06em;
+}
+
+header nav ul li a.pag-selecion{
+    color: var(--color-surface);
+    background-color: var(--color-muted);
+    border-radius: 15px;
+    padding: 0.5em;
 }
 
 footer{
@@ -257,4 +267,24 @@ footer{
         grid-column: span 1;
         grid-row: span 1;
     }
+}
+    font-size: 0.6em;
+    background-color: var(--color-surface);
+}
+
+.redes-sociales{
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.redes-sociales a{
+    color: var(--color-text);
+    font-size: 3em;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.redes-sociales a:hover{
+    color:var(--color-muted);
 }

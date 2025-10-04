@@ -1,0 +1,165 @@
+/* GALERIA.HTML */
+
+/* Contenedor principal */
+.contenedor-principal {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+}
+
+/* Títulos de sección */
+.seccion-titulo {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+    text-align: center;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--font-family-titulos), sans-serif;
+}
+
+/* Subtítulos de sección */
+.seccion-subtitulo {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-xl);
+    text-align: center;
+    color: var(--color-muted);
+    font-family: var(--font-family-subtitulos), sans-serif;
+    font-weight: 500;
+}
+
+/* Sección de galería de fotos */
+.seccion-galeria {
+    margin-bottom: var(--space-xl);
+}
+
+/* Contenedor del collage */
+.collage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* para las 4 columnas */
+    grid-auto-rows: 200px;  /* cada fila */
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+
+/* Foto individual del collage */
+.foto {
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    position: relative;
+    cursor: pointer;
+    transition: transform var(--transition-base);
+}
+
+.foto:hover {
+    transform: scale(1.05);  /* agranda un 5% al pasar mouse */
+    z-index: 10;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter var(--transition-base);
+}
+
+.foto:hover img {
+    filter: brightness(1.2);  /* un 20% más de brillo */
+}
+
+/* Tamaños especiales para algunas fotos */
+
+/* Foto 1 ocupa 2 columnas y 2 filas */
+.foto:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Foto 4 ocupa 2 columnas */
+.foto:nth-child(4) {
+    grid-column: span 2;
+}
+
+/* Foto 7 ocupa 2 filas */
+.foto:nth-child(7) {
+    grid-row: span 2;
+}
+
+/* Foto 9 ocupa 2 columnas y 2 filas */
+.foto:nth-child(9) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* RESPONSIVO */
+
+/* PANTALLAS GRANDES */
+@media (max-width: 1440px) {
+    /* AJUSTES PARA GALERIA.HTML */
+    .contenedor-principal {
+        max-width: 1200px;
+        padding: var(--space-lg) var(--space-md);
+    }
+}
+
+/* PANTALLAS MEDIANAS */
+@media (max-width: 1024px) {
+    /* AJUSTES PARA GALERIA.HTML */
+    .collage {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 180px;
+    }
+
+    .grid-instagram {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .seccion-titulo {
+        font-size: 1.8rem;
+    }
+
+    .seccion-subtitulo {
+        font-size: 1.1rem;
+    }
+}
+
+/* PANTALLAS PEQUEÑAS */
+@media (max-width: 390px) {
+    /* AJUSTES PARA GALERIA.HTML */
+    .contenedor-principal {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .collage {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 200px;
+        gap: var(--space-sm);
+    }
+
+    .grid-instagram {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .seccion-titulo {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    .seccion-subtitulo {
+        font-size: 1rem;
+    }
+
+    /* Resetear de los tamaños especiales */
+    .foto:nth-child(1),
+    .foto:nth-child(4),
+    .foto:nth-child(7),
+    .foto:nth-child(9) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
