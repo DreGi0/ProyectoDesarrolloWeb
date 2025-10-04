@@ -1,10 +1,13 @@
 /* El espacio superior se gestiona globalmente en style.css */
-.historia { margin-top: calc(var(--header-height-desktop) + 2rem); }
+.historia {
+  margin-top: calc(var(--header-height-desktop) + 2rem);
+}
 
 /* Contenedor principal de la historia */
 .historia {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
+  padding-bottom: 5rem;
 }
 
 .historia h2 {
@@ -28,8 +31,7 @@
 }
 
 .img-historia img {
-  width: 25%;
-  object-fit: cover;
+  width: 20%;
   margin: var(--space-sm);
   border-radius: var(--radius-md);
   transition: transform var(--transition-base);
@@ -41,33 +43,49 @@
 
 .historia p {
   padding: var(--space-sm);
-  width: 80%;
+  width: 75%;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
-#imgGrande {
-  display: block;
+.bloque-img-p img {
   width: 30%;
-  margin: var(--space-lg) auto;
-  object-fit: cover;
   border-radius: var(--radius-md);
   transition: transform var(--transition-base);
 }
 
-#imgGrande:hover {
+.bloque-img-p img:hover {
   transform: scale(1.05);
+}
+
+/* Alinear p con img */
+.bloque-img-p {
+  display: flex;
+  width: 100%;
+  align-items: self-start;
+  justify-content: center;
+  gap: var(--space-md);
+  margin: var(--space-md) auto;
+  flex-wrap: wrap;
+}
+
+.bloque-img-p p {
+  width: 44%;
+  margin: 0;
 }
 
 /* PANTALLAS PEQUEÑAS */
 @media (max-width: 390px) {
-  .historia { margin-top: calc(var(--header-height-mobile) + 2rem); }
+  .historia {
+    margin-top: calc(var(--header-height-mobile) + 2rem);
+  }
 
   .historia p {
     width: 100%;
   }
 
   .img-historia img,
-  #imgGrande {
+  .bloque-img-p img {
     width: 100%;
     object-fit: cover;
     margin: var(--space-sm);
@@ -77,5 +95,19 @@
 
 /* PANTALLAS MEDIANAS */
 @media (min-width: 391px) and (max-width: 1024px) {
-  .historia { margin-top: calc(var(--header-height-mobile) + 2.5rem); }
+  .historia {
+    margin-top: calc(var(--header-height-mobile) + 2.5rem);
+  }
+  .historia p {
+    width: 80%;
+  }
+  .bloque-img-p img {
+    width: 70%;
+    object-fit: cover;
+    margin: var(--space-sm);
+    transition: transform var(--transition-base);
+  }
+  .bloque-img-p p {
+    width: 80%;
+  }
 }
