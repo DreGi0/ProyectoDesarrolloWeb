@@ -163,6 +163,15 @@
     .contenedor-videos {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Resetear tamaños especiales para 1 columna */
+    .foto:nth-child(1),
+    .foto:nth-child(4), 
+    .foto:nth-child(7), 
+    .foto:nth-child(9) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
 }
 
 /* PANTALLAS PEQUEÑAS */
@@ -175,11 +184,11 @@
 
     .collage {
         grid-template-columns: 1fr;
-        grid-auto-rows: 200px;
+        grid-auto-rows: 250px;
         gap: var(--space-sm);
     }
 
-    .grid-instagram {
+    .contenedor-videos {
         grid-template-columns: 1fr;
         gap: var(--space-sm);
     }
@@ -193,7 +202,7 @@
         font-size: 1rem;
     }
 
-    /* Resetear de los tamaños especiales */
+    /* Resetear tamaños especiales para 1 columna */
     .foto:nth-child(1),
     .foto:nth-child(4), 
     .foto:nth-child(7), 
