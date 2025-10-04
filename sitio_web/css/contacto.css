@@ -44,14 +44,11 @@ fieldset div:first-of-type {
 }
 
 .titulo-contacto {
-  font-weight: bold;
+  font-family: var(--font-family-titulos);
+  font-size: 3rem;
   text-align: center;
-  font-size: 2rem;
-  letter-spacing: 2px;
-  padding: var(--space-xs);
-  color: var(--color-secondary);
-  font-family: var(--font-family-titulos), sans-serif;
-  text-transform: uppercase;
+  justify-content: center;
+  padding-bottom: var(--space-sm);
 }
 
 /* dar estilo a las cajas de input */
@@ -92,7 +89,6 @@ textarea::placeholder {
 }
 
 #formulario-contacto input[type="text"]:hover,
-#formulario-contacto input[type="email"]:hover,
 #formulario-contacto textarea:hover {
   transform: (1.05);
   box-shadow: 0 0 8px var(--color-secondary);
