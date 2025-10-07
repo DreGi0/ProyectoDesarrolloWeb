@@ -49,7 +49,7 @@
     transition: transform 0.20s ease;
 }
 
-/*Subtítulo*/
+/*Subtítulos*/
 .subtitulo {
     font-family: var(--font-family-subtitulos);
     font-size: 1.5em;
