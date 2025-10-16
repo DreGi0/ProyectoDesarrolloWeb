@@ -1,100 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alleh y Yorghaki</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contacto.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/contacto.css" />
+  </head>
+  <body>
     <header>
-       <h1>Alleh y Yorghaki</h1>
-       <input type="checkbox" id="checkMenu">
-        <label for="checkMenu" class="labelBotonMenu" aria-label="Abrir menú" role="button">
-            <i class="fa-solid fa-bars" id="btnMostrar" aria-hidden="true"></i>
-            <i class="fa-solid fa-xmark" id="btnOcultar" aria-hidden="true"></i>
-        </label>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="integrantes.html">Integrantes</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="merch.html">Merch</a></li>
-                <li><a href="discografia.html">Discografía</a></li>
-                <li><a href="historia.html">Historia</a></li>
-                <li><a href="acerca.html">Acerca de</a></li>
-                <li><a href="contacto.html" class="pag-selecion">Contacto</a></li>
-            </ul>
-        </nav>
+      <h1>Alleh y Yorghaki</h1>
+      <input type="checkbox" id="checkMenu" />
+      <label
+        for="checkMenu"
+        class="labelBotonMenu"
+        aria-label="Abrir menú"
+        role="button"
+      >
+        <i class="fa-solid fa-bars" id="btnMostrar" aria-hidden="true"></i>
+        <i class="fa-solid fa-xmark" id="btnOcultar" aria-hidden="true"></i>
+      </label>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="integrantes.html">Integrantes</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="merch.html">Merch</a></li>
+          <li><a href="discografia.html">Discografía</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="acerca.html">Acerca de</a></li>
+          <li><a href="contacto.html" class="pag-selecion">Contacto</a></li>
+        </ul>
+      </nav>
     </header>
     <section class="contacto">
-        <h2 class="titulo-contacto">Envíanos un mensaje</h2>
-        <form action="" method="post" id="formulario-contacto">
-            <fieldset>
-                <div class="caja-form">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
-                </div>
-                <div class="caja-form">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
-                </div>
-                <div class="caja-form"> 
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
-                </div>
-                    <input type="submit" value="Enviar" class="btn-enviar">
-            </fieldset>
-        </form>
+      <h2 class="titulo-contacto">Envíanos un mensaje</h2>
+      <h3 class="subtitulo-contacto">Alleh y Yorghaki verán tus comentarios</h3>
+      <form action="" method="post" id="formulario-contacto">
+        <fieldset>
+          <div class="caja-form">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" />
+          </div>
+          <div class="caja-form">
+            <label for="email">Correo electrónico</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Correo electrónico"
+              required
+            />
+          </div>
+          <div class="caja-form">
+            <label for="mensaje">Mensaje</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              placeholder="Tu mensaje"
+              required
+            ></textarea>
+          </div>
+          <input type="submit" value="Enviar" class="btn-enviar" />
+        </fieldset>
+      </form>
     </section>
     <section class="comentarios">
       <h2 class="titulo-comentarios">Comentarios</h2>
+      <h3 class="subtitulo-contacto">Mensajes para Alleh y Yorghaki</h3>
       <div>
-        <h4>De: Susana</h4>
+        <h4 class="nombre-comentario">Susana</h4>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam
-          optio beatae tenetur quam unde sequi alias culpa accusantium sapiente.
+          ¡Gracias, Alleh y Yorghaki, por venir a El Salvador! 🇸🇻✨ Fue una
+          experiencia increíble escucharlos en vivo. Su energía, sus voces y la
+          conexión que tienen con el público son algo fuera de este mundo.
+          ¡Vuelvan pronto, los queremos muchísimo! 💖🎶
         </p>
       </div>
       <div>
-        <h4>De: Debbie</h4>
+        <h4 class="nombre-comentario">Debbie</h4>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam
-          optio beatae tenetur quam unde sequi alias culpa accusantium sapiente.
+          Aún no supero lo que fue su concierto en El Salvador 😭🔥 Cada canción
+          me llegó al corazón, y la vibra que transmiten juntos es única.
+          ¡Gracias por regalarnos una noche mágica! 🌙✨
+          #AllehYYorghakiEnElSalvador
         </p>
       </div>
       <div>
-        <h4>De: Andre</h4>
+        <h4 class="nombre-comentario">Andre</h4>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam
-          optio beatae tenetur quam unde sequi alias culpa accusantium sapiente.
+          Verlos en persona fue un sueño hecho realidad 😍 Gracias por tanto
+          talento, por su humildad y por hacernos cantar cada palabra. ¡El
+          Salvador los espera siempre con los brazos abiertos! 🇸🇻💫
         </p>
       </div>
       <div>
-        <h4>De: Tiffany</h4>
+        <h4 class="nombre-comentario">Tiffany</h4>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam
-          optio beatae tenetur quam unde sequi alias culpa accusantium sapiente.
+          No puedo dejar de escuchar sus canciones desde que los vi en El
+          Salvador 😭❤️‍🔥 Qué emoción sentir esa conexión tan real con su música.
+          ¡Son increíbles, Alleh y Yorghaki! Gracias por inspirarnos tanto. 🌟
         </p>
       </div>
-      <div>
-        <h4>De: Dana</h4>
+      <div class="nombre-comentario">
+        <h4>Dana</h4>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam
-          optio beatae tenetur quam unde sequi alias culpa accusantium sapiente.
+          ¡Qué orgullo haber vivido su show en El Salvador! 🇸🇻🙌 Fue pura
+          emoción, arte y buena vibra. Ustedes dos tienen una magia especial que
+          no se explica, solo se siente 💕 ¡Los esperamos pronto de regreso!
+          🎤✨
         </p>
       </div>
     </section>
     <footer>
-        <section class="redes-sociales">
-            <a href="https://www.instagram.com/laciudadtour/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://open.spotify.com/artist/4eq1q0o9XPyNq9RG3fNDD1"><i class="fa-brands fa-spotify"></i></a>
-            <a href="https://www.youtube.com/@Yorghaki"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@allehyorghaki"><i class="fa-brands fa-tiktok"></i></a>
-        </section>
+      <section class="redes-sociales">
+        <a href="https://www.instagram.com/laciudadtour/" target="_blank"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a href="https://open.spotify.com/artist/4eq1q0o9XPyNq9RG3fNDD1"
+          ><i class="fa-brands fa-spotify"></i
+        ></a>
+        <a href="https://www.youtube.com/@Yorghaki"
+          ><i class="fa-brands fa-youtube"></i
+        ></a>
+        <a href="https://www.tiktok.com/@allehyorghaki"
+          ><i class="fa-brands fa-tiktok"></i
+        ></a>
+      </section>
     </footer>
-</body>
+  </body>
 </html>
