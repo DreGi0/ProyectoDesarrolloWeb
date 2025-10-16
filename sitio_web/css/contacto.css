@@ -49,6 +49,15 @@ fieldset div:first-of-type {
   text-align: center;
   justify-content: center;
   padding-bottom: var(--space-sm);
+  letter-spacing: 2px;
+}
+
+.subtitulo-contacto {
+  font-family: var(--font-family-subtitulos);
+  color: var(--color-muted);
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 /* dar estilo a las cajas de input */
@@ -89,44 +98,10 @@ textarea::placeholder {
 }
 
 #formulario-contacto input[type="text"]:hover,
+#formulario-contacto input[type="email"]:hover,
 #formulario-contacto textarea:hover {
   transform: (1.05);
   box-shadow: 0 0 8px var(--color-secondary);
-}
-/* PANTALLAS PEQUEÑAS */
-@media (max-width: 390px) {
-  /* Ajuste específico para el formulario en pantallas pequeñas */
-  #formulario-contacto {
-    margin-top: 30%;
-  }
-  #formulario-contacto fieldset {
-    width: 100%;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: var(--color-muted);
-  }
-
-  .caja-form label {
-    display: none;
-  }
-}
-
-/* PANTALLAS MEDIANAS */
-@media (min-width: 391px) and (max-width: 1024px) {
-  /* Ajuste específico para el formulario en pantallas medianas */
-  #formulario-contacto {
-    margin-top: 15%;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: var(--color-muted);
-  }
-  .caja-form label {
-    display: none;
-  }
 }
 
 /* Sección comentarios */
@@ -150,6 +125,16 @@ textarea::placeholder {
   margin-bottom: var(--space-xl);
 }
 
+.comentarios div h4::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 3px;
+  opacity: 0.5;
+  background-color: var(--color-secondary);
+  margin: 10px auto 0 auto;
+}
+
 .comentarios div:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
@@ -160,10 +145,13 @@ textarea::placeholder {
   text-align: center;
   color: var(--color-primary);
   margin-bottom: var(--space-md);
+  color: var(--color-secondary);
+  letter-spacing: 2px;
+  font-size: 1.2rem;
 }
 
 .comentarios div p {
-  padding: var(--space-md);
+  padding: 0 var(--space-md);
   color: var(--color-muted);
   line-height: 1.6;
 }
@@ -175,4 +163,48 @@ textarea::placeholder {
   text-align: center;
   width: 100%;
   padding-bottom: var(--space-sm);
+}
+
+.comentarios .subtitulo-contacto {
+  grid-column: 1 / -1; /* para que ocupe todas las columnas y esté centrado*/
+}
+
+/* PANTALLAS PEQUEÑAS */
+@media (max-width: 390px) {
+  /* Ajuste específico para el formulario en pantallas pequeñas */
+  #formulario-contacto {
+    margin-top: 10%;
+  }
+  #formulario-contacto fieldset {
+    width: 100%;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-muted);
+  }
+
+  .caja-form label {
+    display: none;
+  }
+}
+
+/* PANTALLAS MEDIANAS */
+@media (min-width: 391px) and (max-width: 1024px) {
+  /* Ajuste específico para el formulario en pantallas medianas */
+  #formulario-contacto {
+    margin-top: 5%;
+  }
+
+  #formulario-contacto fieldset {
+    width: 80%;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-muted);
+  }
+  .caja-form label {
+    display: none;
+  }
 }
