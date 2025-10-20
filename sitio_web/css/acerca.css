@@ -1,88 +1,124 @@
 
-    .contenedor {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-xl) var(--space-xl);
+/*ACERCA DE*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.acerca-de{
-    padding: var(--space-xl);
-    margin: var(--space-xl);
-}
-.acerca-de h2{
+
+/* Título y párrafos */
+.acerca-de h2 {
     font-family: var(--font-family-titulos);
-    font-size: 3rem;
+    font-size:2.5em ;
     text-align: center;
-    justify-content: center;
     padding-bottom: var(--space-sm);
+    transition: transform 0.3s ease;
 }
 
-.acerca-de h2:hover{
-    transform: scale(1.1);  
-    transition: transform 0.30s ease;
-
+.acerca-de h2:hover {
+    transform: scale(1.1);
 }
 
-.acerca-de p{
-    justify-content:center;
+.acerca-de p {
     text-align: justify;
     padding-bottom: var(--space-xl);
     line-height: 1.6;
-}
-.equipo{
-    display: flex;           
-    flex-wrap: wrap;          
-    gap: 2rem;                  
-    justify-content: center;
-    text-align: center;    
-    padding: 1rem; 
+    margin: var(--space-md);
 }
 
-.equipo .integrantes{
+/* Grid del equipo */
+.equipo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1rem;
+    margin: 0;
+}
+
+/* Tarjetas de integrantes */
+.integrantes {
     display: flex;
-    flex-direction: column;  
-    max-width: 700px;
-    background-color: var(--color-surface);   
-    padding: var(--space-xs);
-    margin: var(--space-xs);
-    border-radius: 1.5rem; 
+    flex-direction: column;
+    background-color: var(--color-surface);
+    border-radius: 1.5rem;
     box-shadow: 0 0.2rem 0.5rem rgba(83, 83, 83, 0.1);
+    padding: var(--space-md);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 3.5em;
 }
 
-.equipo .integrantes:hover{
+.equipo .integrantes:hover {
     box-shadow: 0 0.2rem 0.5rem rgb(83, 83, 83);
+    transform: scale(1.02);
+    }
+
+/* Títulos de los integrantes */
+.integrantes h3 {
+    text-align: center;
+    font-size: 1.5em;
+    font-family: var(--font-family-subtitulo);
+    padding: 0 var(--space-sm) var(--space-sm);
 }
 
-.equipo h3{
-    justify-content: center;
-    text-align: center;
-    font-size: 2.5em;
-    font-family: var(--font-family-subtitulo);
-    padding-bottom: var(--space-sm);
-    padding-left: var(--space-sm);
-}
- .imagenes-equipo{
+/* Imágenes*/
+.imagenes-equipo {
+    display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 6px;
+    margin-bottom: 0.5rem;
 }
 
-.imagenes-equipo:hover{
-    transform: scale(1.0);  
-    transition: transform 0.3s;
+/* Párrafos en tarjetas */
+.equipo p {
+  text-align: center;
+  font-size: 1em;
 }
 
-.integrantes p{
+/* Rol del integrante */
+.rol {
     text-align: center;
-    justify-content: justify;
-}
-
-.integrantes .rol{
-    text-align:center;
-    justify-content: flex-start;
     font-weight: bold;
-
+    margin-top: auto;
+    padding-top: 0.5rem;
 }
 
+@media (max-width: 1024px) {
+    .equipo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+    .equipo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0.75rem;
+  }
+    .integrantes {
+        padding: 0.75rem;
+    }
+    .equipo h3 {
+        font-size: 1em;
+  }
+}
 
-
+@media (max-width: 480px) {
+    .equipo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0.6em;
+        margin: 0.5em;
+    }
+    .integrantes {
+        flex: 1 1 auto;  
+        width: 100%;   
+        padding: 0.6rem;
+    }
+    .equipo h3 { 
+        font-size: 1em; 
+    }
+}
