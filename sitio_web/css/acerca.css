@@ -26,7 +26,7 @@
     margin: var(--space-md);
 }
 
-/* Grid del equipo */
+/* Equipo */
 .equipo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -85,4 +85,53 @@
     margin-top: auto;
     padding-top: 0.5rem;
 }
+@media (max-width: 768px) {
+  .acerca-de h2 {
+    font-size: 2em;
+    padding-bottom: var(--space-xs, 0.5rem);
+  }
 
+  .acerca-de p {
+    text-align: left;
+    padding-bottom: var(--space-md, 1rem);
+    margin: var(--space-sm, 0.75rem);
+    line-height: 1.5;
+  }
+
+  .acerca-de .equipo {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding: 0.75rem;
+  }
+
+  .acerca-de .integrantes {
+    border-radius: 1.2rem;
+    padding: var(--space-sm, 0.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .acerca-de h2 {
+    font-size: 1.6em;
+    padding-bottom: var(--space-xs, 0.5rem);
+  }
+
+  .acerca-de p {
+    text-align: left;
+    padding-bottom: var(--space-sm, 0.75rem);
+    margin: var(--space-xs, 0.5rem);
+    line-height: 1.4;
+    font-size: 0.95em;
+  }
+
+  .acerca-de .equipo {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .acerca-de .imagenes-equipo {
+    border-radius: 5px;
+    margin-bottom: 0.4rem;
+  }
+}
