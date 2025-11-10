@@ -1,12 +1,9 @@
 /* DISCOGRAFÍA */
 
-/* Título principal */
-.titulo-principal {
-  font-family: var(--font-family-titulos);
-  font-size: 3.5em;
-  color: var(--color-primary);
-  text-align: center;
-  margin: var(--space-xl) 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Contenedor clase álbum */
@@ -23,16 +20,18 @@
 
 /* Portada */
 .portada img {
+  display: block;
   width: 550px;
   height: 550px;
-  border-radius: 10px;
-  padding: var(--space-xs);
+  border-radius: 15px;
+  padding: var(--space-xl);
   margin: var(--space-xl) var(--space-xs);
+  margin-top: 80px;
 }
 
 /*Acercamiento a la portada*/
 .portada:hover {
-  transform: scale(1.02);  
+  transform: scale(1.02);
   transition: transform 0.3s;
 }
 
@@ -45,9 +44,9 @@
   padding: var(--space-xl) 0 var(--space-md);
 }
 
-.titulo:hover{
-    transform: scale(1.5);  
-    transition: transform 0.20s ease;
+.titulo:hover {
+  transform: scale(1.5);
+  transition: transform 0.2s ease;
 }
 
 /*Subtítulo*/
@@ -70,84 +69,175 @@
 
 /* Tracklist */
 .tracklist {
-  display: flex;
-  flex-direction: column;
-  gap: .25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
+/*canciones del álbum*/
 .cancion {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
   gap: 1rem;
-  padding: .5rem 0;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid rgb(214, 214, 214);
   font-variant-numeric: tabular-nums;
   font-size: var(--font-size-base);
   font-family: var(--font-family-base);
 }
 
-.cancion:hover {
-  background-color: rgb(242, 242, 242);
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+/* Número y nombre de la canción */
+.cancion span:first-child {
+  min-width: 180px;
+  font-weight: 500;
 }
 
+/* Control de audio */
+.audio {
+  width: 250px;
+  height: 40px;
+  justify-self: center;
+}
+
+/* Duración de la canción */
+.cancion span:last-child {
+  min-width: 50px;
+  text-align: right;
+  color: var(--color-muted);
+  font-size: 0.9em;
+}
+
+/* Efecto */
+.cancion:hover {
+  background-color: rgb(242, 242, 242);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/*Créditos del álbum*/
 .creditos {
   display: flex;
+  justify-content: center;
   text-align: center;
   font-family: var(--font-family-base);
   font-size: 1rem;
   color: var(--color-primary);
   padding: var(--space-xl);
+  gap: 16px;
 }
 
 .creditos span {
-  display: flex;         
-  color: var(--color-primary);
-  margin: 0.2rem ; 
-  padding: auto;        
-}
-
-/* Singles*/
-.single {
-  background-color: rgb(250, 250, 250);
-  border-radius: 10px;
-  margin: var(--space-xl);
-  padding: var(--space-xl);
   display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2.5rem;
+  color: var(--color-primary);
+  margin: 0.2em;
+  padding: auto;
 }
 
-/* Portada del single */
-.portada-single img {
-  width: 550px;
-  height: 500px;
-  border-radius: 10px;
-  padding: var(--space-xs);
-  margin: var(--space-xs);
-}
-
-/*Acercamiento a la portada*/
-.portada-single:hover {
-  transform: scale(1.02);  
-  transition: transform 0.3s;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .album,
-  .single {
+  .album {
+    margin: var(--space-md, 1rem);
+    padding: var(--space-md, 1rem);
+    gap: 1.5rem;
     flex-direction: column;
     align-items: center;
   }
 
-  .portada img,
-  .portada-single img {
+  .portada img {
+    width: 350px;
+    height: 350px;
+    margin: var(--space-md, 1rem) auto;
+    margin-top: 20px;
+    padding: var(--space-md, 1rem);
+  }
+
+  .tracklist {
     width: 100%;
-    height: auto;
-    max-width: 450px;
+  }
+
+  .cancion {
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .cancion span:first-child {
+    min-width: 120px;
+    font-size: 0.95em;
+  }
+
+  .audio {
+    width: 180px;
+    height: 35px;
+  }
+
+  .cancion span:last-child {
+    min-width: 45px;
+    font-size: 0.85em;
+  }
+
+  .creditos {
+    flex-direction: column;
+    padding: var(--space-md, 1rem);
+    gap: 8px;
+  }
+}
+
+/* Móviles - 480px */
+@media (max-width: 480px) {
+  .album {
+    margin: var(--space-sm, 0.5rem);
+    padding: var(--space-sm, 0.75rem);
+    gap: 1rem;
+    border-radius: 8px;
+  }
+
+  .portada img {
+    width: 280px;
+    height: 280px;
+    margin: var(--space-sm, 0.5rem) auto;
+    margin-top: 10px;
+    padding: var(--space-sm, 0.5rem);
+    border-radius: 10px;
+  }
+
+  .portada:hover {
+    transform: scale(1);
+  }
+  
+  .cancion {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+  }
+
+  .cancion span:first-child {
+    min-width: auto;
+    font-size: 0.9em;
+    text-align: left;
+  }
+
+  .audio {
+    width: 100%;
+    max-width: 280px;
+    height: 32px;
+    justify-self: stretch;
+  }
+
+  .cancion span:last-child {
+    min-width: auto;
+    text-align: left;
+    font-size: 0.8em;
+  }
+
+  .creditos {
+    font-size: 0.9rem;
+    padding: var(--space-sm, 0.75rem);
+    gap: 6px;
+  }
+
+  .creditos span {
+    margin: 0.1em;
   }
 }

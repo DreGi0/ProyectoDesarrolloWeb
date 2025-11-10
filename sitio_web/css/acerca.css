@@ -1,0 +1,137 @@
+
+/*ACERCA DE*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Título y párrafos */
+.acerca-de h2 {
+    font-family: var(--font-family-titulos);
+    font-size:2.5em ;
+    text-align: center;
+    padding-bottom: var(--space-sm);
+    transition: transform 0.3s ease;
+}
+
+.acerca-de h2:hover {
+    transform: scale(1.1);
+}
+
+.acerca-de p {
+    text-align: justify;
+    padding-bottom: var(--space-xl);
+    line-height: 1.6;
+    margin: var(--space-md);
+}
+
+/* Equipo */
+.equipo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1rem;
+    margin: 0;
+}
+
+/* Tarjetas de integrantes */
+.integrantes {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface);
+    border-radius: 1.5rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(83, 83, 83, 0.1);
+    padding: var(--space-md);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 3.5em;
+}
+
+.equipo .integrantes:hover {
+    box-shadow: 0 0.2rem 0.5rem rgb(83, 83, 83);
+    transform: scale(1.02);
+    }
+
+/* Títulos de los integrantes */
+.integrantes h3 {
+    text-align: center;
+    font-size: 1.5em;
+    font-family: var(--font-family-subtitulo);
+    padding: 0 var(--space-sm) var(--space-sm);
+}
+
+/* Imágenes*/
+.imagenes-equipo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+/* Párrafos en tarjetas */
+.equipo p {
+  text-align: center;
+  font-size: 1em;
+}
+
+/* Rol del integrante */
+.rol {
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+@media (max-width: 768px) {
+  .acerca-de h2 {
+    font-size: 2em;
+    padding-bottom: var(--space-xs, 0.5rem);
+  }
+
+  .acerca-de p {
+    text-align: left;
+    padding-bottom: var(--space-md, 1rem);
+    margin: var(--space-sm, 0.75rem);
+    line-height: 1.5;
+  }
+
+  .acerca-de .equipo {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding: 0.75rem;
+  }
+
+  .acerca-de .integrantes {
+    border-radius: 1.2rem;
+    padding: var(--space-sm, 0.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .acerca-de h2 {
+    font-size: 1.6em;
+    padding-bottom: var(--space-xs, 0.5rem);
+  }
+
+  .acerca-de p {
+    text-align: left;
+    padding-bottom: var(--space-sm, 0.75rem);
+    margin: var(--space-xs, 0.5rem);
+    line-height: 1.4;
+    font-size: 0.95em;
+  }
+
+  .acerca-de .equipo {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .acerca-de .imagenes-equipo {
+    border-radius: 5px;
+    margin-bottom: 0.4rem;
+  }
+}
