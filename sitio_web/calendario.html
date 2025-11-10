@@ -6,14 +6,15 @@
     <title>Alleh y Yorghaki</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calendario.css">
 </head>
 <body>
     <header>
         <h1>Alleh y Yorghaki</h1>
         <input type="checkbox" id="checkMenu">
-        <label for="checkMenu" class="labelBotonMenu">
-            <i class="fa fa-navicon" id="btnMostrar"></i>
-            <i class="fa fa-remove" id="btnOcultar"></i>
+        <label for="checkMenu" class="labelBotonMenu" aria-label="Abrir menú" role="button">
+            <i class="fa-solid fa-bars" id="btnMostrar" aria-hidden="true"></i>
+            <i class="fa-solid fa-xmark" id="btnOcultar" aria-hidden="true"></i>
         </label>
         <nav>
             <ul>
@@ -30,6 +31,33 @@
             </ul>
         </nav>
     </header>
+    <main class="container calendario-page">
+        <section class="cal-header">
+            <button id="prevMonth" aria-label="Mes anterior">&lsaquo;</button>
+            <div class="cal-title" aria-live="polite">
+                <h2 id="monthYear">Mes Año</h2>
+            </div>
+            <button id="nextMonth" aria-label="Mes siguiente">&rsaquo;</button>
+        </section>
+
+        <section class="calendar" aria-label="Calendario de eventos">
+            <div class="weekdays">
+                <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+            </div>
+            <div id="calendarGrid" class="grid" role="grid"></div>
+        </section>
+    
+        <!-- Modal para eventos y asi -->
+        <div id="eventModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+            <div class="modal-content">
+                <button id="closeModal" class="modal-close" aria-label="Cerrar">&times;</button>
+                <h3 id="modalTitle">Título evento</h3>
+                <p id="modalWhen">Fecha / hora</p>
+                <p id="modalPlace"></p>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </main>
 
     <footer>
         <section class="redes-sociales">
@@ -39,6 +67,7 @@
             <a href="https://www.tiktok.com/@allehyorghaki"><i class="fa-brands fa-tiktok"></i></a>
         </section>
     </footer>
-    
+
+    <script src="js/calendario.js" defer></script>
 </body>
 </html>
