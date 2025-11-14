@@ -3,7 +3,15 @@
 /* El padding superior se gestiona globalmente en style.css */
 
 /* Alinear los campos del formulario */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+.contacto {
+  margin-top: 120px;
+}
 #formulario-contacto {
   margin: var(--space-lg);
 }
