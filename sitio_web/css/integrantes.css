@@ -1,0 +1,354 @@
+/* Contenedor principal */
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: calc(80px + var(--space-xl)) var(--space-md) calc(60px + var(--space-xl));
+}
+
+/* Títulos de contendor */
+.contenedor-titulo {
+    font-family: var(--font-family-titulos), sans-serif;
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 2px;
+}
+
+/* Subtítulos de contenedor */
+.contenedor-subtitulo {
+    font-family: var(--font-family-subtitulos), sans-serif;
+    color: var(--color-muted);
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: var(--space-xl);
+}
+
+/* Grid de artistas */
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    padding: var(--space-lg) 0;
+}
+
+/* Tarjeta individual de cada artista */
+.tarjeta-artista {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    border: var(--border-width) solid var(--color-muted);
+}
+
+/* Efecto hover de la tarjeta del artista */
+.tarjeta-artista:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+    border-color: var(--color-secondary);
+}
+
+/* Enlace de la tarjeta */
+.link-artista {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Foto del artista en la tarjeta */
+.foto-artista {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+    border-radius: var(--radius-md);
+}
+
+/* Efecto zoom en foto al hover */
+.tarjeta-artista:hover .foto-artista {
+    transform: scale(1.05);
+}
+
+/* Pie de foto */
+figcaption {
+    padding: var(--space-lg);
+    text-align: center;
+    background: var(--color-surface);
+}
+
+/* Nombre del artista en el pie de la foto */
+figcaption h3 {
+    font-family: var(--font-family-titulos), sans-serif;
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+    letter-spacing: 1px;
+}
+
+/* Rol del artista en el pie de la foto */
+figcaption p {
+    font-family: var(--font-family-subtitulos), sans-serif;
+    color: var(--color-secondary);
+    font-size: 1rem;
+}
+
+/* OVERLAY*/
+
+/* Contenedor del overlay */
+.info-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 41, 55, 0.95);
+    z-index: 2000;
+    overflow-y: auto;
+    padding: var(--space-lg);
+}
+
+/* Mostrar overlay cuando se hace clic en el artista */
+.info-overlay:target {
+    display: block;
+}
+
+/* Caja de contenido del overlay */
+.contenedor-info {
+    max-width: 900px;
+    margin: var(--space-xl) auto;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    position: relative;
+    animation: slideIn var(--transition-base) ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de cerrar */
+.btn-cerrar {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 45px;
+    height: 45px;
+    background: var(--color-secondary);
+    color: var(--color-surface);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 10;
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto hover del botón cerrar */
+.btn-cerrar:hover {
+    background: var(--color-primary);
+}
+
+/* Contenedor del contenido del overlay */
+.contenido {
+    padding: var(--space-xl);
+}
+
+/* Foto del artista en el overlay */
+.contenido .foto-artista {
+    max-width: 400px;
+    height: auto;
+    margin-bottom: var(--space-lg);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Nombre del artista en el overlay */
+.texto-info h2 {
+    font-family: var(--font-family-titulos), sans-serif;
+    color: var(--color-secondary);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 2px;
+}
+
+/* Rol del artista en el overlay */
+.rol {
+    font-family: var(--font-family-subtitulos), sans-serif;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: var(--space-lg);
+}
+
+/* Párrafos del overlay */
+.texto-info p {
+    font-family: var(--font-family-base), sans-serif;
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+}
+
+/* Subtítulos de secciones dentro del overlay */
+.texto-info h3 {
+    font-family: var(--font-family-subtitulos), sans-serif;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    border-left: 4px solid var(--color-secondary);
+    padding-left: var(--space-md);
+}
+
+/* Lista de logros o contribuciones */
+.texto-info ul {
+    list-style-position: inside;
+    color: var(--color-text);
+    line-height: 2;
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-md);
+}
+
+/* Items individuales de la lista */
+.texto-info ul li {
+    margin-bottom: var(--space-sm);
+}
+
+/* RESPONSIVO */
+
+/* PANTALLAS GRANDES */
+@media (max-width: 1440px) {
+
+    .contenedor-principal {
+        max-width: 1200px;
+    }
+}
+
+/* PANTALLAS MEDIANAS */
+@media (max-width: 1024px) {
+  
+    .contenedor-principal {
+        padding: calc(100px + var(--space-lg)) var(--space-md) calc(90px + var(--space-lg));
+    }
+
+    .contenedor-titulo {
+        font-size: 2.5rem;
+    }
+
+    .contenedor-subtitulo {
+        font-size: 1.1rem;
+    }
+
+    main {
+        gap: var(--space-lg);
+    }
+
+    .foto-artista {
+        height: 300px;
+    }
+
+    /* Reducir el tamaño del overlay */
+    .texto-info h2 {
+        font-size: 2.2rem;
+    }
+
+    .rol {
+        font-size: 1.1rem;
+    }
+
+    .texto-info h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* PANTALLAS PEQUEÑAS */
+@media (max-width: 768px) {
+
+    .contenedor-principal {
+        padding: calc(140px + var(--space-md)) var(--space-md) calc(80px + var(--space-md));
+    }
+
+    .contenedor-titulo {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .contenedor-subtitulo {
+        font-size: 1rem;
+    }
+
+    /* Grid en una sola columna */
+    main {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    /* Reducir el tamaño del overlay */
+    .contenido {
+        padding: var(--space-lg);
+    }
+
+    .texto-info h2 {
+        font-size: 2rem;
+    }
+
+    .texto-info p {
+        font-size: 0.95rem;
+    }
+}
+
+/* PANTALLAS MUY PEQUEÑAS */
+@media (max-width: 390px) {
+
+    .contenedor-principal {
+        padding: calc(80px + var(--space-md)) var(--space-sm) calc(80px + var(--space-sm));
+    }
+
+    .contenedor-titulo {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+
+    .contenedor-subtitulo {
+        font-size: 0.9rem;
+    }
+
+    .foto-artista {
+        height: 250px;
+    }
+
+    /* Reducir el tamaño del overlay */
+    .contenido {
+        padding: var(--space-md);
+    }
+
+    .texto-info h2 {
+        font-size: 1.6rem;
+    }
+
+    .rol {
+        font-size: 1rem;
+    }
+
+    .texto-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .texto-info p {
+        font-size: 0.9rem;
+    }
+
+    .btn-cerrar {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .texto-info ul {
+        font-size: 0.9rem;
+    }
+}

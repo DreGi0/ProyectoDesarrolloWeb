@@ -2,7 +2,8 @@
 .merch-hero {
     background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
     color: #ffffff;
-    padding: 3rem 0;
+    /* espacio superior para el header fijo */
+    padding: calc(3rem + var(--header-height-desktop)) 0 3rem 0;
     text-align: center;
 }
 
@@ -118,4 +119,6 @@
 @media (max-width: 520px) {
     .merch-hero h2 { font-size: 1.5rem; }
     .product-card img { height: 140px; }
+
+    .merch-hero { padding-top: calc(1.5rem + var(--header-height-mobile)); }
 }

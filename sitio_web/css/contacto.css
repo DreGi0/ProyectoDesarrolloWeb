@@ -1,85 +1,210 @@
-
-
 /* PÁGINA CONTACTO */
 
-/* Agregar un padding para que no se vea detrás o debajo del menú */
-body {
-    padding-top: 10%;
-}
+/* El padding superior se gestiona globalmente en style.css */
 
 /* Alinear los campos del formulario */
 
 #formulario-contacto {
-    margin: var(--space-lg);
+  margin: var(--space-lg);
 }
 
 .caja-form {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 fieldset div:first-of-type {
-    margin-top: var(--space-lg);
+  margin-top: var(--space-lg);
 }
 
 .caja-form label {
-    width: 30%;
-    margin: var(--space-xs);
+  width: 30%;
+  margin: var(--space-xs);
+  font-weight: bold;
 }
 
 #formulario-contacto input[type="submit"] {
-    display: block;
-    margin: var(--space-md) auto;
-    padding: var(--space-sm) var(--space-lg);
-    background-color: var(--color-primary); /* uso del color primario definido */
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: var(--radius-md)
+  display: block;
+  margin: var(--space-md) auto;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-primary); /* uso del color primario definido */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
 }
 
 #formulario-contacto fieldset {
-    width: 35%;
-    margin: var(--space-md) auto;
-    padding: var(--space-sm);
-    border: none;
-    border-radius: var(--radius-lg);
-    box-shadow: 9px 8px 23px -7px var(--color-primary); /* Caja de sombra*/
+  width: 35%;
+  margin: var(--space-md) auto;
+  padding: var(--space-sm);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 9px 8px 23px -7px var(--color-primary); /* Caja de sombra*/
 }
 
 .titulo-contacto {
-    font-weight: bold;
-    text-align: center;
-    font-size: 2rem;
-    letter-spacing: 2px;
-    padding: var(--space-xs);
-    color: var(--color-secondary);
-    font-family: var(--font-family-titulos), sans-serif;
-    text-transform: uppercase;
+  font-family: var(--font-family-titulos);
+  font-size: 3rem;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: var(--space-sm);
+  letter-spacing: 2px;
+}
+
+.subtitulo-contacto {
+  font-family: var(--font-family-subtitulos);
+  color: var(--color-muted);
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 /* dar estilo a las cajas de input */
 #formulario-contacto input,
 #formulario-contacto textarea {
-    flex: 1; /* Ocupa el espacio restante */
-    padding: var(--space-sm);
-    margin: var(--space-sm);
-    box-sizing: border-box;
-    border-radius: var(--radius-sm);
-    border: var(--border-width) solid var(--color-muted);
-    font-family: inherit;
-    resize: none;
+  flex: 1; /* Ocupa el espacio restante */
+  padding: var(--space-sm);
+  margin: var(--space-sm);
+  box-sizing: border-box;
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--color-muted);
+  font-family: inherit;
+  resize: none;
+}
+
+/* Ocultar placeholder*/
+
+input::placeholder,
+textarea::placeholder {
+  color: transparent;
 }
 
 /* cambio de borde cuando el input esté activo */
 #formulario-contacto input[type="text"]:focus,
 #formulario-contacto input[type="email"]:focus,
 #formulario-contacto textarea:focus {
-    outline: solid var(--color-secondary);
+  outline: solid var(--color-secondary);
 }
 
 #formulario-contacto .btn-enviar:hover {
-    opacity: 0.8;
-    transition: all var(--transition-base); 
+  transition: all var(--transition-base);
+  transform: scale(1.05);
 }
 
+#formulario-contacto input,
+#formulario-contacto textarea {
+  transition: all var(--transition-base);
+}
+
+#formulario-contacto input[type="text"]:hover,
+#formulario-contacto input[type="email"]:hover,
+#formulario-contacto textarea:hover {
+  transform: (1.05);
+  box-shadow: 0 0 8px var(--color-secondary);
+}
+
+/* Sección comentarios */
+
+.comentarios {
+  width: 90%;
+  margin: var(--space-xl) auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.comentarios div {
+  background: var(--color-surface);
+  box-shadow: 0 4px 6px var(--color-muted);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base);
+  padding: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.comentarios div h4::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 3px;
+  opacity: 0.5;
+  background-color: var(--color-secondary);
+  margin: 10px auto 0 auto;
+}
+
+.comentarios div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+  border-color: var(--color-secondary);
+}
+
+.comentarios div h4 {
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  color: var(--color-secondary);
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+}
+
+.comentarios div p {
+  padding: 0 var(--space-md);
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.titulo-comentarios {
+  grid-column: 1 / -1; /* para que ocupe todas las columnas y esté centrado*/
+  font-family: var(--font-family-titulos);
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  padding-bottom: var(--space-sm);
+}
+
+.comentarios .subtitulo-contacto {
+  grid-column: 1 / -1; /* para que ocupe todas las columnas y esté centrado*/
+}
+
+/* PANTALLAS PEQUEÑAS */
+@media (max-width: 390px) {
+  /* Ajuste específico para el formulario en pantallas pequeñas */
+  #formulario-contacto {
+    margin-top: 10%;
+  }
+  #formulario-contacto fieldset {
+    width: 100%;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-muted);
+  }
+
+  .caja-form label {
+    display: none;
+  }
+}
+
+/* PANTALLAS MEDIANAS */
+@media (min-width: 391px) and (max-width: 1024px) {
+  /* Ajuste específico para el formulario en pantallas medianas */
+  #formulario-contacto {
+    margin-top: 5%;
+  }
+
+  #formulario-contacto fieldset {
+    width: 80%;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-muted);
+  }
+  .caja-form label {
+    display: none;
+  }
+}
