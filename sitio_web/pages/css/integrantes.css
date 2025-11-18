@@ -95,6 +95,11 @@ figcaption p {
 
 /* OVERLAY*/
 
+/* Contenedor para los overlay dinámicos */
+#contenedorInfoIntegrantes {
+    display: contents;
+}
+
 /* Contenedor del overlay */
 .info-overlay {
     display: none;
