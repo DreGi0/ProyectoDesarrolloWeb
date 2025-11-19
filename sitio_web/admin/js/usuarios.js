@@ -1,7 +1,8 @@
 // Gestión completa de los usuarios (CRUD)
 
 // Importar Firebase desde el archivo firebase.js
-import { db } from './firebase.js';
+import { db, auth } from './firebase.js';
+import{updatePassword} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
 // Importar las funciones de Firestore
 import { 
@@ -164,6 +165,18 @@ export async function actualizarUsuario() {
     mostrarMensaje('Actualizando usuario...', 'info');
 
     try {
+        // Actualizar la contraseña si se proporcionó una nueva
+        if (nuevaContraseña !== '') {
+            try {
+                await updatePassword(auth.currentUser, nuevaContraseña);
+                mostrarMensaje('Contraseña actualizada correctamente', 'success');
+            } catch (error) {
+                console.error('Error al actualizar contraseña:', error);
+                mostrarMensaje('Error al actualizar contraseña: ' + error.message, 'error');
+                return; 
+            }
+        }
+
         // Actualizar en Firestore
         const docRef = doc(db, COLECCION_USUARIOS, id);
         await updateDoc(docRef, datosActualizados);
