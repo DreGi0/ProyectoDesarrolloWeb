@@ -9,7 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/calendario.css" />
+    <link rel="stylesheet" href="css/discografia.css" />
   </head>
   <body>
     <header>
@@ -30,56 +30,23 @@
           <li><a href="noticias.html">Noticias</a></li>
           <li><a href="integrantesFirebase.html">Integrantes</a></li>
           <li><a href="galeria.html">Galeria</a></li>
-          <li><a href="calendario.html" class="pag-selecion">Calendario</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
           <li><a href="merch.html">Merch</a></li>
-          <li><a href="discografiaFirebase.html">Discografía</a></li>
+          <li>
+            <a href="discografiaFirebase.html" class="pag-selecion"
+              >Discografía</a
+            >
+          </li>
           <li><a href="historia.html">Historia</a></li>
           <li><a href="acerca.html">Acerca de</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </header>
-    <main class="container calendario-page">
-      <section class="cal-header">
-        <button id="prevMonth" aria-label="Mes anterior">&lsaquo;</button>
-        <div class="cal-title" aria-live="polite">
-          <h2 id="monthYear">Mes Año</h2>
-        </div>
-        <button id="nextMonth" aria-label="Mes siguiente">&rsaquo;</button>
-      </section>
 
-      <section class="calendar" aria-label="Calendario de eventos">
-        <div class="weekdays">
-          <div>Dom</div>
-          <div>Lun</div>
-          <div>Mar</div>
-          <div>Mié</div>
-          <div>Jue</div>
-          <div>Vie</div>
-          <div>Sáb</div>
-        </div>
-        <div id="calendarGrid" class="grid" role="grid"></div>
-      </section>
-
-      <!-- Modal para eventos y asi -->
-      <div
-        id="eventModal"
-        class="modal"
-        aria-hidden="true"
-        role="dialog"
-        aria-labelledby="modalTitle"
-        aria-modal="true"
-      >
-        <div class="modal-content">
-          <button id="closeModal" class="modal-close" aria-label="Cerrar">
-            &times;
-          </button>
-          <h3 id="modalTitle">Título evento</h3>
-          <p id="modalWhen">Fecha / hora</p>
-          <p id="modalPlace"></p>
-          <p id="modalDesc"></p>
-        </div>
-      </div>
+    <!-- contenedor principal -->
+    <main>
+      <div class="contenedor-principal" id="contenedorDiscografia"></div>
     </main>
 
     <footer>
@@ -99,6 +66,7 @@
       </section>
     </footer>
 
-    <script src="js/calendario.js" defer></script>
+    <!-- Scripts de Firebase -->
+    <script type="module" src="js/cargarDiscografia.js"></script>
   </body>
 </html>
