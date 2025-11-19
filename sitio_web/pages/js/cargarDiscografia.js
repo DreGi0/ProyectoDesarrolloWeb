@@ -55,12 +55,10 @@ async function cargarDiscografiaPublico() {
         );
 
         cancionesOrdenadas.forEach((track) => {
-          //const audio = track.audioLink;
-          // <span class="audioLink-cancion"> ${track.audioLink} </span>
+          const audio = track.audioLink || "";
           canciones += `<div class="cancion">
-        <span class="numero-cancion"> ${track.cancion} </span>
-        <span class="titulo-cancion">${track.titulo}</span>
-        
+        <span class="titulo-cancion"> ${track.cancion}. ${track.titulo} </span>
+        <audio controls src="${track.audioLink}" class="audio"> </audio>
         <span class="duracion-cancion">${track.duracion}</span>
       </div>`;
         });
@@ -77,13 +75,14 @@ async function cargarDiscografiaPublico() {
             <h3 class="subtitulo">${data.artistas}</h3>
             <h4 class="subtitulo">Tracklist</h4>
             ${canciones}
-            <div class="creditos">
+            <section class="creditos">
               <span>${data.fecha}</span>
+              <span class="deco">・</span>
               <span>${data.productora}</span>
+              <span class="deco">・</span>
               <span>${data.totalCanciones} ・ ${data.totalMinutos}</span>
+            </section>
             </div>
-            </div>
-            
         </div>`;
       contenedorDiscografia.innerHTML += album;
     });
