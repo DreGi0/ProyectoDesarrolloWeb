@@ -2,6 +2,7 @@
 .calendario-page {
     padding: calc(var(--space-lg, 2rem) + var(--header-height-desktop, 6rem)) 1.5rem 4rem;
 }
+
 .cal-header {
     display: flex;
     align-items: center;
@@ -9,6 +10,7 @@
     gap: 1rem;
     margin-bottom: 1rem;
 }
+
 .cal-header button {
     background: var(--color-secondary, #3b82f6);
     color: #fff;
@@ -17,8 +19,19 @@
     font-size: 1.25rem;
     border-radius: 6px;
     cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
 }
-.cal-title h2 { margin: 0; font-size: 1.25rem; }
+
+.cal-header button:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
+
+.cal-title h2 { 
+    margin: 0; 
+    font-size: 1.25rem; 
+}
+
 .calendar .weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -27,11 +40,13 @@
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
+
 .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 0.5rem;
 }
+
 .day {
     min-height: 80px;
     background: var(--color-surface, #fff);
@@ -42,12 +57,77 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    position: relative;
+    transition: all 0.2s ease;
 }
-.day.other-month { opacity: 0.35; }
-.day .dateNum { font-weight: 700; margin-bottom: 0.25rem; }
+
+/* Días vacíos (del mes anterior/siguiente) */
+.day.empty { 
+    opacity: 0.35;
+    cursor: default;
+    background: transparent;
+}
+
+.day.other-month { 
+    opacity: 0.35; 
+}
+
+/* Número del día */
+.day-number,
+.day .dateNum { 
+    font-weight: 700; 
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+/* Día actual */
+.day.today {
+    border: 2px solid var(--color-secondary, #3b82f6);
+    font-weight: bold;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Días con eventos */
+.day.has-event { 
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+    border-color: rgba(59,130,246,0.5);
+}
+
+.day.has-event:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(59,130,246,0.4);
+}
+
+.day.has-event .day-number {
+    color: white;
+}
+
+/* Indicador de cantidad de eventos */
+.event-indicator {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Eventos en el día (si usas dots) */
 .day .events {
     margin-top: auto;
 }
+
 .event-dot {
     display: inline-block;
     width: 8px;
@@ -56,37 +136,231 @@
     border-radius: 50%;
     margin-right: 6px;
 }
-.has-event { box-shadow: 0 4px 12px rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.2); }
 
 /* Modal de los eventos */
 .modal { 
     display: none; 
     position: fixed; 
     inset: 0; 
-    background: rgba(0,0,0,0.5); 
+    background: rgba(0,0,0,0.6); 
     align-items: center; 
     justify-content: center; 
-    z-index: 2000; 
+    z-index: 2000;
+    backdrop-filter: blur(2px);
 }
 
 .modal[aria-hidden="false"] { 
-    display: flex; 
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .modal-content { 
     background: var(--color-surface, #fff); 
-    padding: 1.25rem; 
-    border-radius: 8px; 
+    padding: 2rem 1.5rem; 
+    border-radius: 12px; 
     width: 90%; 
     max-width: 520px; 
-    box-shadow: 0 10px 30px rgba(2,6,23,0.2); 
-    position: relative; 
+    box-shadow: 0 10px 30px rgba(2,6,23,0.3); 
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .modal-close { 
     position: absolute; 
-    top: 8px; right: 8px; 
+    top: 10px; 
+    right: 15px; 
     background: transparent; 
     border: none; 
-    font-size: 1.5rem; 
-    cursor: pointer; }
+    font-size: 1.75rem; 
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.2s, transform 0.2s;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #0f172a;
+    transform: rotate(90deg);
+}
+
+/* Contenido del modal */
+#modalTitle {
+    color: var(--color-secondary, #3b82f6);
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-right: 30px;
+}
+
+#modalWhen,
+#modalPlace {
+    color: #64748b;
+    margin: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+#modalWhen i,
+#modalPlace i {
+    color: var(--color-secondary, #3b82f6);
+    font-size: 1rem;
+}
+
+#modalDesc {
+    margin-top: 1.25rem;
+    line-height: 1.7;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+/* Lista de eventos múltiples */
+.eventos-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.evento-item {
+    background: #f8fafc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-secondary, #3b82f6);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.evento-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.evento-item:last-child {
+    margin-bottom: 0;
+}
+
+.evento-item strong {
+    color: var(--color-secondary, #3b82f6);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.evento-item i {
+    margin-right: 6px;
+    color: #64748b;
+}
+
+.evento-item small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.evento-item br {
+    margin-bottom: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendario-page {
+        padding: calc(var(--space-md, 1rem) + var(--header-height-mobile, 4rem)) 1rem 3rem;
+    }
+
+    .cal-title h2 {
+        font-size: 1.1rem;
+    }
+
+    .cal-header button {
+        padding: 0.4rem 0.6rem;
+        font-size: 1.1rem;
+    }
+
+    .day {
+        min-height: 60px;
+        padding: 0.4rem;
+    }
+
+    .day-number {
+        font-size: 0.9rem;
+    }
+
+    .event-indicator {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem 1.25rem;
+        max-width: 95%;
+    }
+
+    #modalTitle {
+        font-size: 1.25rem;
+    }
+
+    #modalWhen,
+    #modalPlace,
+    #modalDesc {
+        font-size: 0.9rem;
+    }
+
+    .evento-item {
+        padding: 0.85rem;
+    }
+
+    .evento-item strong {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        gap: 0.25rem;
+    }
+
+    .day {
+        min-height: 50px;
+        padding: 0.3rem;
+    }
+
+    .calendar .weekdays {
+        font-size: 0.85rem;
+    }
+
+    .event-indicator {
+        width: 16px;
+        height: 16px;
+        font-size: 0.65rem;
+        top: 3px;
+        right: 3px;
+    }
+}
