@@ -55,7 +55,7 @@
                 <!-- Encabezado -->
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Gestión de Usuarios</h1>
-                    <a href="nuevoUsuario.html" class="btn btn-primary">
+                    <a href="../usuarios/usuario.html" class="btn btn-primary">
                         <i class="bi bi-plus-circle"></i> Agregar nuevo usuario
                     </a>
                 </div>
@@ -91,7 +91,7 @@
                         <div id="mensajeVacio" class="text-center py-5" style="display: none;">
                             <i class="bi bi-inbox display-1 text-muted"></i>
                             <p class="lead mt-3">No hay usuarios registrados</p>
-                            <a href="nuevoUsuario.html" class="btn btn-primary">
+                            <a href="../usuarios/usuario.html" class="btn btn-primary">
                                 <i class="bi bi-plus-circle"></i> Agregar
                             </a>
                         </div>
@@ -133,9 +133,11 @@
     <!-- Archivo de JavaScript como módulo -->
     <script type="module">
         import { cargarUsuarios } from '../js/usuarios.js';
+        import {requireAuth} from '../js/auth.js';
         
         // Cargar usuarios cuando se carga la página
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', async() => {
+            await requireAuth();
             cargarUsuarios();
         });
     </script>
