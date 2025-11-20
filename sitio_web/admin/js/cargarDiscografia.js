@@ -72,7 +72,6 @@ async function cargarDiscografiaPublico() {
             
             <div class="canciones">
             <h2 class="titulo">${data.titulo}</h2>
-            <h3 class="subtitulo">${data.artistas}</h3>
             <h4 class="subtitulo">Tracklist</h4>
             ${canciones}
             <section class="creditos">
