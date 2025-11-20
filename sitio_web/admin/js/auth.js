@@ -11,6 +11,7 @@ import {
     getDoc,
     doc, 
     setDoc,
+    Timestamp
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 //
@@ -37,6 +38,7 @@ export async function registerUser(email, password, firstName, lastName) {
             email,
             firstName,
             lastName,
+            fechaCreacion: Timestamp.now(),
             role: "user"  //Todos son user/empleados por defecto, admin se cambia en firebase y se le asigna
         });
 

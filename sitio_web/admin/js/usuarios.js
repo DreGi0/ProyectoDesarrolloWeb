@@ -4,6 +4,9 @@
 import { db, auth } from './firebase.js';
 import{updatePassword} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
+//importar función para editar 
+import { canEditUser } from './auth.js';
+
 // Importar las funciones de Firestore
 import { 
     collection, 
@@ -66,8 +69,8 @@ export async function cargarUsuarios() {
             const id = docSnapshot.id;
             
             // Valores por defecto si los campos no existen
-            const nombre = usuario.nombre || 'Sin nombre';
-            const apellido = usuario.apellido || 'Sin apellido';
+            const nombre = usuario.firstName ||  usuario.nombre ||'Sin nombre';
+            const apellido = usuario.lastName || usuario.apellido ||'Sin apellido';
 
         
             const fila = document.createElement('tr');
@@ -76,16 +79,47 @@ export async function cargarUsuarios() {
                 <td>${apellido}</td>
                 <td>${usuario.email || 'Sin correo'}</td>
                 <td>
-                    <a href="editarUsuarios.html?id=${id}" class="btn btn-sm btn-primary me-1" title="Editar">
+                    <a href="editarUsuarios.html?id=${id}" 
+                        class="btn btn-sm btn-primary me-1 btn-editar"
+                        data-uid="${id}"
+                        title = "Editar">
                         <i class="bi bi-pencil-square"></i> Editar
                     </a>
-                    <button onclick="window.confirmarEliminar('${id}', '${nombre} ${apellido}')" class="btn btn-sm btn-danger" title="Eliminar">
-                        <i class="bi bi-trash"></i> Eliminar
+                    <button 
+                    class = "btn btn-sm btn-danger btn-eliminar"
+                    data-uid = "${id}"
+                    data-nombre = "${nombre} ${apellido}"
+                    title = "Eliminar">
+                    <i class="bi bi-trash"></i> Eliminar
                     </button>
                 </td>
             `;
             
             tbody.appendChild(fila);
+
+            //Aplicar los permisos, después de agregar la fila
+            const btnEditar = fila.querySelector('.btn-editar');
+            const btnConfirmarEliminar = fila.querySelector('.btn-eliminar');
+
+            if(!btnEditar || !btnConfirmarEliminar){
+                console.warn("No se encontró la opción solicitada");
+                return;
+            }
+
+            if(!canEditUser(id)){
+                //Si no se puede editar el usuario
+                btnEditar.classList.add('disabled');
+                btnEditar.style.pointerEvents = 'none';
+                
+                btnConfirmarEliminar.classList.add('disabled');
+                btnConfirmarEliminar.style.pointerEvents = 'none';
+            }else{
+                //Solo si puede se agrrga la función de eliminar 
+                btnConfirmarEliminar.addEventListener('click', () =>{
+                    const nombre = btnConfirmarEliminar.getAttribute('data-nombre');
+                    window.confirmarEliminar(id, nombre);
+                })
+            }
         });
         
     } catch (error) {
@@ -116,8 +150,8 @@ export async function cargarDatosUsuario(id) {
             
             // Llenar el formulario con los datos (con valores por defecto si no existen)
             document.getElementById('usuarioId').value = id;
-            document.getElementById('nombre').value = usuario.nombre || '';
-            document.getElementById('apellido').value = usuario.apellido || '';
+            document.getElementById('nombre').value = usuario.nombre || usuario.firstName|| '';
+            document.getElementById('apellido').value = usuario.apellido || usuario.lastName|| '';
             document.getElementById('email').value = usuario.email || '';
             
             // Ocultar el mensaje de carga y mostrar formulario

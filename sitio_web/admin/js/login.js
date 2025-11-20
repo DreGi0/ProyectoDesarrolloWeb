@@ -1,34 +1,5 @@
 // js/login.js
-import { registerUser, loginUser } from "./auth.js";
-
-const registerForm = document.getElementById("registerForm");
-
-if (registerForm) {
-
-  registerForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email     = document.getElementById("usuario").value;
-    const password  = document.getElementById("password").value;
-    const firstName = document.getElementById("idFirstName").value;
-    const lastName  = document.getElementById("idLastName").value;
-
-    console.log("[login.js] Datos de registro:", {firstName, lastName, email});
-
-    const ok = await registerUser(email, password, firstName, lastName);
-
-    if (ok) {
-      alert("Usuario creado correctamente");
-      
-      setTimeout(() =>{
-            window.location.href = "../login.html";
-      }, 500);
-
-    } else {
-      alert("Error: el correo ya está registrado o hubo un problema");
-    }
-  });
-}
+import {loginUser } from "./auth.js";
 
 //Login 
 const loginForm = document.getElementById("loginForm");
@@ -53,7 +24,7 @@ if (loginForm) {
 
     if (userData){
     //misma vista para admin y user/empleado
-    window.location.href = "../index.html";
+    window.location.href = "sitio_web/index.html"; //Arreglar ruta
     }else{
         alert("Correo y/o contraseña incorrectos");
     }
