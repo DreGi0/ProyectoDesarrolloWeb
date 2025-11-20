@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Evento</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="bg-light">
+    <!-- Contenedor principal -->
+    <div class="container-fluid">
+        <div class="row">
+            
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+                <div class="position-sticky pt-3">
+                    <h4 class="text-white text-center mb-4">Panel Administrador</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../dashboard.html">
+                                <i class="bi bi-house-door"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../integrantes/indexIntegrantes.html">
+                                <i class="bi bi-people"></i> Integrantes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active bg-primary" href="indexEventos.html">
+                                <i class="bi bi-calendar-event"></i> Calendario
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../discografia/indexDiscografia.html">
+                                <i class="bi bi-disc"></i> Discografía
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../usuarios/indexUsuarios.html">
+                                <i class="bi bi-person-circle"></i> Usuarios
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                
+                <!-- Encabezado -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">
+                        <i class="bi bi-plus-circle"></i> Agregar Nuevo Evento
+                    </h1>
+                    <a href="indexEventos.html" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left"></i> Volver a la lista
+                    </a>
+                </div>
+
+                <!-- Formulario -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <form id="formNuevoEvento">
+                            
+                            <!-- Información Básica -->
+                            <div class="mb-4">
+                                <h5 class="border-bottom pb-2 mb-3">
+                                    <i class="bi bi-info-circle"></i> Información del evento
+                                </h5>
+                                
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="titulo" class="form-label">Título del evento *</label>
+                                        <input type="text" class="form-control" id="titulo" placeholder="Ej: Concierto en El Salvador" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="fecha" class="form-label">Fecha *</label>
+                                        <input type="date" class="form-control" id="fecha" required>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label for="hora" class="form-label">Hora *</label>
+                                        <input type="time" class="form-control" id="hora" required>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label for="tipo" class="form-label">Tipo de evento *</label>
+                                        <select class="form-select" id="tipo" required>
+                                            <option value="">Selecciona un tipo</option>
+                                            <option value="concierto">Concierto</option>
+                                            <option value="entrevista">Entrevista</option>
+                                            <option value="lanzamiento">Lanzamiento</option>
+                                            <option value="meet-and-greet">Meet & Greet</option>
+                                            <option value="otro">Otro</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="lugar" class="form-label">Lugar *</label>
+                                    <input type="text" class="form-control" id="lugar" placeholder="Ej: Museo de Arte de El Salvador" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="descripcion" class="form-label">Descripción *</label>
+                                    <textarea class="form-control" id="descripcion" rows="4" placeholder="Describe el evento..." required></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Botones de acción -->
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="button" class="btn btn-secondary" id="btnCancelar">
+                                    <i class="bi bi-x-circle"></i> Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-save"></i> Guardar evento
+                                </button>
+                            </div>
+
+                            <!-- Mensaje de estado -->
+                            <div id="mensajeEstado" class="alert mt-3" style="display: none;"></div>
+                            
+                        </form>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Archivo de JavaScript como módulo -->
+    <script type="module">
+        import { crearEvento } from '../js/eventos.js';
+        
+        // Manejar el envío del formulario
+        document.getElementById('formNuevoEvento').addEventListener('submit', function(e) {
+            e.preventDefault();
+            crearEvento();
+        });
+
+        // Botón "cancelar"
+        document.getElementById('btnCancelar').addEventListener('click', function() {
+            if(confirm('¿Deseas cancelar? Los cambios no guardados se perderán')) {
+                window.location.href = 'indexEventos.html';
+            }
+        });
+    </script>
+</body>
+</html>
