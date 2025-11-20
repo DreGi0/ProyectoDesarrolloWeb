@@ -2,7 +2,6 @@
 
 // Importar Firebase desde el archivo firebase.js
 import { db, auth } from './firebase.js';
-import{updatePassword} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
 //importar función para editar 
 import { canEditUser } from './auth.js';
@@ -46,7 +45,7 @@ export async function cargarUsuarios() {
         // Obtener de Firebase todos los usuarios ordenados por fecha
         const q = query(
             collection(db, COLECCION_USUARIOS),
-            orderBy('fechaCreacion', 'desc')
+            //orderBy('fechaCreacion', 'desc')
         );
         
         const querySnapshot = await getDocs(q);
@@ -199,18 +198,6 @@ export async function actualizarUsuario() {
     mostrarMensaje('Actualizando usuario...', 'info');
 
     try {
-        // Actualizar la contraseña si se proporcionó una nueva
-        if (nuevaContraseña !== '') {
-            try {
-                await updatePassword(auth.currentUser, nuevaContraseña);
-                mostrarMensaje('Contraseña actualizada correctamente', 'success');
-            } catch (error) {
-                console.error('Error al actualizar contraseña:', error);
-                mostrarMensaje('Error al actualizar contraseña: ' + error.message, 'error');
-                return; 
-            }
-        }
-
         // Actualizar en Firestore
         const docRef = doc(db, COLECCION_USUARIOS, id);
         await updateDoc(docRef, datosActualizados);
