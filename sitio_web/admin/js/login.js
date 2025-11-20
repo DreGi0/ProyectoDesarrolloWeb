@@ -24,7 +24,7 @@ if (loginForm) {
 
     if (userData){
     //misma vista para admin y user/empleado
-    window.location.href = "sitio_web/index.html"; //Arreglar ruta
+    window.location.href = "./usuarios/indexUsuarios.html"; //Arreglar ruta
     }else{
         alert("Correo y/o contraseña incorrectos");
     }
