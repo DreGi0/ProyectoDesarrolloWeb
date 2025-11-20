@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de usuarios</title>
+    <title>Gestión de Eventos</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -31,7 +31,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="../calendario/indexEventos.html">
+                            <a class="nav-link active bg-primary" href="indexEventos.html">
                                 <i class="bi bi-calendar-event"></i> Calendario
                             </a>
                         </li>
@@ -41,13 +41,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active bg-primary" href="../usuarios/indexUsuarios.html">
+                            <a class="nav-link text-white" href="../usuarios/indexUsuarios.html">
                                 <i class="bi bi-person-circle"></i> Usuarios
-                            </a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-white" href="./contraseñaNueva.html">
-                                <i class="bi bi-lock-fill"></i> Actualizar contraseña
                             </a>
                         </li>
                     </ul>
@@ -59,45 +54,46 @@
                 
                 <!-- Encabezado -->
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Gestión de Usuarios</h1>
-                    <a href="../usuarios/usuario.html" class="btn btn-primary">
-                        <i class="bi bi-plus-circle"></i> Agregar nuevo usuario
+                    <h1 class="h2">Gestión de Eventos del Calendario</h1>
+                    <a href="nuevoEvento.html" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Agregar nuevo evento
                     </a>
                 </div>
 
-                <!-- Tabla de usuarios -->
+                <!-- Tabla de eventos -->
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-hover table-striped align-middle">
                                 <thead class="table-dark">
                                     <tr>
-                                        <th class="col-3">Nombre</th>
-                                        <th class="col-3">Apellido</th>
-                                        <th class="col-3">Correo</th>
-                                        <th class="col-3">Acciones</th>
+                                        <th>Título</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Lugar</th>
+                                        <th style="width: 200px;">Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody id="listaUsuarios">
+                                <tbody id="listaEventos">
                                     <!-- Mensaje de carga -->
                                     <tr>
-                                        <td colspan="4" class="text-center">
+                                        <td colspan="5" class="text-center">
                                             <div class="spinner-border text-primary" role="status">
                                                 <span class="visually-hidden">Cargando...</span>
                                             </div>
-                                            <p class="mt-2">Cargando usuarios...</p>
+                                            <p class="mt-2">Cargando eventos...</p>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <!-- Mensaje si no hay usuarios -->
+                        <!-- Mensaje si no hay eventos -->
                         <div id="mensajeVacio" class="text-center py-5" style="display: none;">
                             <i class="bi bi-inbox display-1 text-muted"></i>
-                            <p class="lead mt-3">No hay usuarios registrados</p>
-                            <a href="../usuarios/usuario.html" class="btn btn-primary">
-                                <i class="bi bi-plus-circle"></i> Agregar
+                            <p class="lead mt-3">No hay eventos registrados</p>
+                            <a href="nuevoEvento.html" class="btn btn-primary">
+                                <i class="bi bi-plus-circle"></i> Agregar primer evento
                             </a>
                         </div>
                     </div>
@@ -118,7 +114,7 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>¿Estás seguro que deseas eliminar a <strong id="nombreEliminar"></strong>?</p>
+                    <p>¿Estás seguro que deseas eliminar el evento <strong id="nombreEliminar"></strong>?</p>
                     <div class="alert alert-warning mb-0">
                         <i class="bi bi-info-circle"></i> Esta acción no se puede deshacer
                     </div>
@@ -137,13 +133,11 @@
     
     <!-- Archivo de JavaScript como módulo -->
     <script type="module">
-        import { cargarUsuarios } from '../js/usuarios.js';
-        import {requireAuth} from '../js/auth.js';
+        import { cargarEventos } from '../js/eventos.js';
         
-        // Cargar usuarios cuando se carga la página
-        window.addEventListener('DOMContentLoaded', async() => {
-            await requireAuth();
-            cargarUsuarios();
+        // Cargar eventos cuando se carga la página
+        window.addEventListener('DOMContentLoaded', function() {
+            cargarEventos();
         });
     </script>
 </body>
