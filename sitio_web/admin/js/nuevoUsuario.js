@@ -1,9 +1,14 @@
-import { registerUser, requireAuth } from "./auth.js";
+import { registerUser, requireAuth, isAdmin } from "./auth.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
   // Asegurar que esté logueado
   await requireAuth();
+
+  if(!isAdmin ()){
+    alert("No tienes permisos para registrar usuarios.")
+    window.location.href = "../usuarios/indexUsuarios.html"
+  }
 
   const form = document.getElementById("registerForm");
 
