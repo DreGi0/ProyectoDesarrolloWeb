@@ -8,6 +8,8 @@ if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    console.log("Se ejecutó el submit del login")
+
     const email    = document.getElementById("usuario").value;
     const password = document.getElementById("password").value;
 
@@ -16,6 +18,7 @@ if (loginForm) {
     loginForm.querySelector("button[type = 'submit']");
 
     let original = loginBtn ? loginBtn.innerHTML: null;
+
     if(loginBtn){
         loginBtn.disabled = true;
         loginBtn.innerHTML = "Ingresando...";
@@ -23,8 +26,8 @@ if (loginForm) {
     const userData = await loginUser(email, password);
 
     if (userData){
-    //misma vista para admin y user/empleado
-    window.location.href = "./usuarios/indexUsuarios.html"; //Arreglar ruta
+    window.location.href = "./dashboard.html"; 
+    
     }else{
         alert("Correo y/o contraseña incorrectos");
     }
