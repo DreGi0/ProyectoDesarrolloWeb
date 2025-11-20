@@ -134,6 +134,11 @@ textarea.form-control {
     height: 3rem;
 }
 
+/* Fondo para los card del dashboard */
+.bg-dashboard {
+    background-color: rgba(206, 209, 210, 0.519);
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
