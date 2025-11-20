@@ -305,6 +305,8 @@ export async function cargarDatosAlbum(id) {
         const imgUrl =
           album.portada || album.fotoUrl || album.url_portada || "";
 
+        inputPortada.value = imgUrl;
+
         const vistaPrevia = document.getElementById("vistaPrevia");
         if (vistaPrevia) vistaPrevia.src = imgUrl;
       } else {
